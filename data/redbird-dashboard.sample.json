@@ -1,5 +1,5 @@
 {
-  "version": "0.9",
+  "version": "0.11",
   "updated": "2026-06-24",
   "sourceOfTruth": "Notion",
   "deployment": {
@@ -14,11 +14,11 @@
     "status": "prep"
   },
   "readiness": [
-    { "area": "Release package", "percent": 35, "status": "building" },
-    { "area": "Audio / listening", "percent": 55, "status": "active review" },
-    { "area": "Files / assets", "percent": 45, "status": "organizing" },
-    { "area": "Visual / zine", "percent": 40, "status": "concepting" },
-    { "area": "Roadmap / tasks", "percent": 60, "status": "structured" }
+    { "area": "Roadmap + Tasks", "percent": 60, "status": "structured" },
+    { "area": "Audio + Listening", "percent": 55, "status": "active review" },
+    { "area": "Files + Assets", "percent": 45, "status": "organizing" },
+    { "area": "Visual + Zine", "percent": 40, "status": "concepting" },
+    { "area": "Release Package", "percent": 35, "status": "building" }
   ],
   "notionSources": [
     { "module": "Dashboard", "role": "current state and front door" },
@@ -38,5 +38,64 @@
     { "month": "December 2026", "label": "Looping Pedal EP", "type": "EP" },
     { "month": "January 2027", "label": "REDBIRD full album", "type": "album" },
     { "month": "February–March 2027", "label": "Post-album cycle", "type": "after" }
+  ],
+  "decisions": [
+    {
+      "status": "locked",
+      "title": "Notion remains canonical",
+      "detail": "The Netlify book displays summaries and snapshots; it does not replace Notion as the operating system."
+    },
+    {
+      "status": "active",
+      "title": "v0.8+ visual language",
+      "detail": "Late-1980s adventure-game pixel interface with Loom / King's Quest-style dithering."
+    },
+    {
+      "status": "active",
+      "title": "Self Love / Clark Gable leads rollout",
+      "detail": "Lead release stays focused on September 2026 with current July/August prep."
+    },
+    {
+      "status": "open",
+      "title": "Public/private boundary",
+      "detail": "Decide which Notion-derived data can appear in the deployed interface."
+    },
+    {
+      "status": "open",
+      "title": "Dashboard depth",
+      "detail": "Decide how many charts/tables belong in the public portal versus the private Notion dashboard."
+    }
+  ],
+  "filesAssets": [
+    {
+      "type": "repo",
+      "name": "GitHub source repo",
+      "status": "active",
+      "detail": "Versioned code, docs, CSS, script, and JSON snapshots."
+    },
+    {
+      "type": "site",
+      "name": "Netlify live site",
+      "status": "active",
+      "detail": "Hosted interactive book and review layer."
+    },
+    {
+      "type": "notion",
+      "name": "Visual + Zine Assets",
+      "status": "source",
+      "detail": "Book, zine, moodboard, typography, and artifact direction."
+    },
+    {
+      "type": "audio",
+      "name": "Audio + Listening",
+      "status": "source",
+      "detail": "Mix review, listening notes, playback context, and unresolved audio decisions."
+    },
+    {
+      "type": "archive",
+      "name": "Dropbox / source files",
+      "status": "pending link policy",
+      "detail": "Long-term file host and source-file archive."
+    }
   ]
 }
