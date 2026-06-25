@@ -1,0 +1,163 @@
+/* REDBIRD Interactive Book v0.10 — interaction and page-turn layer */
+
+[data-screen],
+[data-action] {
+  cursor:pointer;
+}
+
+.clickable-card {
+  cursor:pointer;
+  transition:transform .14s ease,border-color .14s ease,filter .14s ease;
+}
+
+.clickable-card:hover,
+.clickable-card:focus {
+  transform:translateY(-1px);
+  border-color:var(--gold);
+  filter:brightness(1.02);
+  outline:none;
+}
+
+.book-frame.turning {
+  animation:softPageTurn .34s ease both;
+}
+
+@keyframes softPageTurn {
+  0% { transform:translateX(0) skewY(0); filter:brightness(1); }
+  42% { transform:translateX(3px) skewY(-.45deg); filter:brightness(1.04); }
+  100% { transform:translateX(0) skewY(0); filter:brightness(1); }
+}
+
+.page-corner-flip {
+  position:absolute;
+  right:18px;
+  bottom:18px;
+  z-index:4;
+  width:54px;
+  height:54px;
+  border:1px solid rgba(139,90,43,.45);
+  border-radius:0 0 10px 0;
+  background:linear-gradient(135deg,rgba(255,249,232,.15) 0 42%,rgba(212,175,55,.42) 43% 46%,rgba(122,15,15,.22) 47% 100%),var(--checker-dither),rgba(251,242,220,.72);
+  background-size:auto,4px 4px,auto;
+  color:var(--redbird);
+  font-family:'Press Start 2P',monospace;
+  font-size:13px;
+  box-shadow:inset 1px 1px 0 rgba(255,255,255,.24),0 3px 0 rgba(31,24,18,.22);
+}
+
+.page-corner-flip:hover,
+.page-corner-flip:focus {
+  transform:translateY(-1px);
+  outline:none;
+  border-color:var(--gold);
+}
+
+.page-corner-flip span {
+  display:block;
+  transform:rotate(-18deg);
+}
+
+.toast {
+  position:fixed;
+  left:50%;
+  bottom:24px;
+  transform:translateX(-50%) translateY(12px);
+  max-width:min(620px,92vw);
+  background:var(--micro-grid),linear-gradient(180deg,rgba(68,43,34,.98),rgba(31,24,20,.98));
+  color:var(--parchment-light);
+  border:1px solid rgba(212,175,55,.58);
+  border-radius:8px;
+  padding:12px 14px;
+  box-shadow:0 12px 28px rgba(0,0,0,.44),inset 1px 1px 0 rgba(255,255,255,.08);
+  z-index:10;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .18s ease,transform .18s ease;
+  font-size:16px;
+}
+
+.toast.visible {
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+.tracks-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.track-card {
+  background:var(--checker-dither),linear-gradient(180deg,rgba(249,242,221,.86),rgba(235,223,196,.92));
+  background-size:4px 4px,auto;
+  border:1px solid rgba(139,90,43,.42);
+  border-radius:7px;
+  padding:14px;
+  box-shadow:0 3px 0 var(--ega-shadow),inset 1px 1px 0 rgba(255,255,255,.22),inset -1px -1px 0 rgba(90,74,56,.12);
+}
+
+.track-card.primary {
+  border-color:rgba(162,23,21,.62);
+  background:var(--checker-dither),linear-gradient(180deg,rgba(252,236,210,.95),rgba(239,219,190,.98));
+}
+
+.track-kicker {
+  font-family:'Press Start 2P',monospace;
+  font-size:7px;
+  color:var(--brown);
+  text-transform:uppercase;
+  line-height:1.8;
+}
+
+.track-title {
+  display:block;
+  font-size:22px;
+  color:var(--redbird);
+  margin:6px 0 3px;
+  font-weight:700;
+}
+
+.track-meta {
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.28;
+}
+
+.action-row {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+
+.action-chip {
+  border:1px solid rgba(139,90,43,.45);
+  background:rgba(251,242,220,.55);
+  color:var(--ink);
+  border-radius:999px;
+  padding:7px 9px;
+  font-size:14px;
+  font-family:'Cormorant Garamond',serif;
+  font-weight:700;
+}
+
+.action-chip:hover,
+.action-chip:focus {
+  border-color:var(--gold);
+  background:rgba(212,175,55,.16);
+  outline:none;
+}
+
+.status-dot {
+  display:inline-block;
+  width:8px;
+  height:8px;
+  margin-right:6px;
+  background:var(--redbird-bright);
+  box-shadow:1px 1px 0 rgba(0,0,0,.28);
+}
+
+@media (max-width:860px){
+  .tracks-grid { grid-template-columns:1fr; }
+  .page-corner-flip { right:12px; bottom:12px; }
+}
