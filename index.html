@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Book of REDBIRD — v0.9 Dashboard Prototype</title>
+  <title>The Book of REDBIRD — v0.10 Interactive Portal</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="v08-adventure-style.css" />
   <link rel="stylesheet" href="v09-dashboard.css" />
+  <link rel="stylesheet" href="v010-interactions.css" />
 </head>
 <body>
   <main class="redbird-app" aria-label="The Book of REDBIRD interactive prototype">
     <header class="app-topbar">
       <div class="kicker">REDBIRD // Notion-informed project interface</div>
-      <div class="status-pill">v0.9 · dashboard layer</div>
+      <div class="status-pill">v0.10 · clickable portal</div>
     </header>
 
     <section class="book-stage">
@@ -25,14 +26,17 @@
           <button class="nav-btn active" data-screen="cover"><span class="nav-icon">📕</span> Cover</button>
           <button class="nav-btn" data-screen="dashboard"><span class="nav-icon">▣</span> Dashboard</button>
           <button class="nav-btn" data-screen="toc"><span class="nav-icon">📜</span> Contents</button>
-          <button class="nav-btn" data-screen="today"><span class="nav-icon">🕯️</span> REDBIRD Today</button>
-          <button class="nav-btn" data-screen="calendar"><span class="nav-icon">📅</span> Release Calendar</button>
+          <button class="nav-btn" data-screen="today"><span class="nav-icon">🕯️</span> Today</button>
+          <button class="nav-btn" data-screen="tracks"><span class="nav-icon">🎼</span> Tracks</button>
+          <button class="nav-btn" data-screen="calendar"><span class="nav-icon">📅</span> Calendar</button>
           <button class="nav-btn" data-screen="backmatter"><span class="nav-icon">🗄️</span> Back Matter</button>
         </nav>
       </aside>
 
       <section class="main-book">
         <div class="book-frame">
+          <button class="page-corner-flip" type="button" data-action="next-page" aria-label="Turn page"><span>↷</span></button>
+
           <section class="screen active" id="screen-cover">
             <div class="cover-screen"><div class="cover-book"><div class="pixel-label">OPEN THE ARCHIVE</div><div class="cover-title-small">THE BOOK OF</div><h2>REDBIRD</h2><p>Notion-fed project interface</p><button class="pixel-button" data-screen="dashboard">OPEN DASHBOARD</button></div></div>
           </section>
@@ -41,26 +45,26 @@
             <div class="page-heading"><div><h2>Project Dashboard</h2><p>A usable portal layer informed by the REDBIRD Notion operating system.</p></div><div class="pixel-label">Notion → GitHub → Netlify</div></div>
             <div class="dashboard-shell">
               <div class="dashboard-kpis">
-                <article class="kpi-card"><div class="kpi-label">Active release</div><div class="kpi-value">SL/CG</div><div class="kpi-note">Self Love / Clark Gable</div></article>
-                <article class="kpi-card"><div class="kpi-label">Rollout start</div><div class="kpi-value">Sept</div><div class="kpi-note">Public release month</div></article>
-                <article class="kpi-card"><div class="kpi-label">Mode</div><div class="kpi-value">Prep</div><div class="kpi-note">July/August buildout</div></article>
-                <article class="kpi-card"><div class="kpi-label">Data source</div><div class="kpi-value">Notion</div><div class="kpi-note">Static snapshot for now</div></article>
+                <article class="kpi-card clickable-card" tabindex="0" data-screen="today"><div class="kpi-label">Active release</div><div class="kpi-value" id="kpi-active-release">SL/CG</div><div class="kpi-note">Self Love / Clark Gable</div></article>
+                <article class="kpi-card clickable-card" tabindex="0" data-screen="calendar"><div class="kpi-label">Rollout start</div><div class="kpi-value" id="kpi-rollout-start">Sept</div><div class="kpi-note">Public release month</div></article>
+                <article class="kpi-card clickable-card" tabindex="0" data-screen="tracks"><div class="kpi-label">Mode</div><div class="kpi-value" id="kpi-mode">Prep</div><div class="kpi-note">July/August buildout</div></article>
+                <article class="kpi-card clickable-card" tabindex="0" data-screen="backmatter"><div class="kpi-label">Data source</div><div class="kpi-value">JSON</div><div class="kpi-note">Snapshot layer</div></article>
               </div>
 
               <section class="pipeline-card">
                 <div class="pipeline-label">Pipeline</div>
                 <div class="pipeline-grid">
-                  <div class="pipeline-step"><strong>Notion</strong><span>Dashboards, databases, source-of-truth views, tasks, files, decisions.</span></div>
-                  <div class="pipeline-step"><strong>Snapshot</strong><span>Selected status values exported or summarized into structured JSON.</span></div>
-                  <div class="pipeline-step"><strong>GitHub</strong><span>Versioned UI, docs, schema, static data snapshots, change history.</span></div>
-                  <div class="pipeline-step"><strong>Netlify</strong><span>Hosted interactive book, portal, review layer, public/private preview.</span></div>
+                  <div class="pipeline-step clickable-card" tabindex="0" data-screen="dashboard"><strong>Notion</strong><span>Dashboards, databases, tasks, files, decisions.</span></div>
+                  <div class="pipeline-step clickable-card" tabindex="0" data-screen="dashboard"><strong>Snapshot</strong><span>Selected values become structured JSON.</span></div>
+                  <div class="pipeline-step clickable-card" tabindex="0" data-screen="backmatter"><strong>GitHub</strong><span>Interface code, docs, schema, version history.</span></div>
+                  <div class="pipeline-step clickable-card" tabindex="0" data-screen="calendar"><strong>Netlify</strong><span>Hosted interactive book and review layer.</span></div>
                 </div>
               </section>
 
               <div class="dashboard-two-column">
                 <section class="chart-card">
                   <div class="chart-label">Readiness bars</div>
-                  <div class="readiness-chart" aria-label="REDBIRD readiness by workspace area">
+                  <div class="readiness-chart" id="readiness-chart" aria-label="REDBIRD readiness by workspace area">
                     <div class="readiness-row"><span>Roadmap + Tasks</span><div class="readiness-track"><div class="readiness-fill" style="width:60%"></div></div><span>60%</span></div>
                     <div class="readiness-row"><span>Audio + Listening</span><div class="readiness-track"><div class="readiness-fill" style="width:55%"></div></div><span>55%</span></div>
                     <div class="readiness-row"><span>Files + Assets</span><div class="readiness-track"><div class="readiness-fill" style="width:45%"></div></div><span>45%</span></div>
@@ -68,40 +72,23 @@
                     <div class="readiness-row"><span>Release Package</span><div class="readiness-track"><div class="readiness-fill" style="width:35%"></div></div><span>35%</span></div>
                   </div>
                 </section>
-
-                <section class="module-card">
+                <section class="module-card clickable-card" tabindex="0" data-screen="backmatter">
                   <div class="module-label">Operating rule</div>
                   <strong>Notion remains canonical.</strong>
-                  <span>This interface should not become a second source-of-truth. It should display polished summaries, charts, and status pulled from Notion snapshots.</span>
-                  <div class="dashboard-note">v0.9 is still a prototype. The next build should replace these hard-coded values with data from <code>data/redbird-dashboard.sample.json</code>, then eventually a real Notion export.</div>
+                  <span>This portal should display polished summaries, charts, and status pulled from Notion snapshots.</span>
+                  <div class="dashboard-note">v0.10 adds page-corner turning, hash navigation, clickable cards, and JSON dashboard hydration.</div>
                 </section>
               </div>
-
-              <section class="data-table-card">
-                <div class="table-label">Notion dashboard map</div>
-                <table class="data-table">
-                  <thead><tr><th>Notion page</th><th>What it should feed</th></tr></thead>
-                  <tbody>
-                    <tr><td>REDBIRD Dashboard</td><td>Top-line status, phase, current focus, quick routes.</td></tr>
-                    <tr><td>Roadmap + Tasks</td><td>Task counts, upcoming actions, blockers, rollout milestones.</td></tr>
-                    <tr><td>Current Release Package</td><td>Lead release readiness, copy, audio, assets, approvals.</td></tr>
-                    <tr><td>Audio + Listening</td><td>Mix notes, playback contexts, unresolved audio decisions.</td></tr>
-                    <tr><td>Files + Assets</td><td>Masters, exports, artwork, source files, Dropbox/GitHub links.</td></tr>
-                    <tr><td>Visual + Zine Assets</td><td>Book/zine status, moodboard, design direction, page-spread work.</td></tr>
-                    <tr><td>Decision Log</td><td>Confirmed choices and open questions surfaced clearly.</td></tr>
-                  </tbody>
-                </table>
-              </section>
             </div>
           </section>
 
           <section class="screen" id="screen-toc">
-            <div class="page-heading"><div><h2>Table of Contents</h2><p>Choose a section of the working book.</p></div><div class="pixel-label">late-80s adventure dither UI</div></div>
+            <div class="page-heading"><div><h2>Table of Contents</h2><p>Choose a section of the working book.</p></div><div class="pixel-label">clickable map</div></div>
             <div class="toc-grid">
               <div class="toc-item" tabindex="0" data-screen="dashboard"><span>▣</span><div><div class="toc-title">Project Dashboard</div><div class="toc-sub">Notion-fed operating interface</div></div><span class="chev">›</span></div>
-              <div class="toc-item" tabindex="0" data-screen="today"><span>🕯️</span><div><div class="toc-title">REDBIRD Today</div><div class="toc-sub">Daily Office / Working Dashboard</div></div><span class="chev">›</span></div>
+              <div class="toc-item" tabindex="0" data-screen="today"><span>🕯️</span><div><div class="toc-title">REDBIRD Today</div><div class="toc-sub">Current focus and quick actions</div></div><span class="chev">›</span></div>
+              <div class="toc-item" tabindex="0" data-screen="tracks"><span>🎼</span><div><div class="toc-title">Songs / Tracks</div><div class="toc-sub">Release sequence and track status</div></div><span class="chev">›</span></div>
               <div class="toc-item" tabindex="0" data-screen="calendar"><span>📅</span><div><div class="toc-title">Release Calendar</div><div class="toc-sub">July 2026 through March 2027 arc</div></div><span class="chev">›</span></div>
-              <div class="toc-item" tabindex="0" data-screen="today"><span>🎼</span><div><div class="toc-title">Songs / Tracks</div><div class="toc-sub">Track status and next actions</div></div><span class="chev">›</span></div>
               <div class="toc-item" tabindex="0" data-screen="backmatter"><span>🗃️</span><div><div class="toc-title">Archive</div><div class="toc-sub">Files, links, masters, references</div></div><span class="chev">›</span></div>
               <div class="toc-item" tabindex="0" data-screen="backmatter"><span>📚</span><div><div class="toc-title">References</div><div class="toc-sub">Project bible, tuning, source library</div></div><span class="chev">›</span></div>
             </div>
@@ -110,43 +97,56 @@
           <section class="screen" id="screen-today">
             <div class="page-heading"><div><h2>REDBIRD Today</h2><p>Current cockpit for July/August prep toward the September 2026 rollout.</p></div><div class="pixel-label">current phase</div></div>
             <div class="dashboard-grid">
-              <article class="info-card"><div class="card-icon">♥</div><div class="card-title">Lead Release</div><div class="card-body">Self Love / Clark Gable<br>September 2026</div></article>
-              <article class="info-card"><div class="card-icon">🔎</div><div class="card-title">Prep Focus</div><div class="card-body">Mix review · artwork direction<br>metadata · release copy</div></article>
-              <article class="info-card"><div class="card-icon">⚖️</div><div class="card-title">Decision Needed</div><div class="card-body">Confirm final mix, artwork, and public calendar language</div></article>
-              <article class="info-card wide"><div class="card-title">Release Readiness</div><div class="card-body">Working marker: 30% — replace with Notion status when formalized</div><div class="readiness"><span style="width:30%"></span></div></article>
-              <article class="info-card"><div class="card-title">Quick Actions</div><div class="card-body">Listening note · Visual pass · Copy approval</div></article>
+              <article class="info-card clickable-card" tabindex="0" data-screen="tracks"><div class="card-icon">♥</div><div class="card-title">Lead Release</div><div class="card-body">Self Love / Clark Gable<br>September 2026</div></article>
+              <article class="info-card clickable-card" tabindex="0" data-screen="backmatter"><div class="card-icon">🔎</div><div class="card-title">Prep Focus</div><div class="card-body">Mix review · artwork direction<br>metadata · release copy</div></article>
+              <article class="info-card clickable-card" tabindex="0" data-screen="dashboard"><div class="card-icon">⚖️</div><div class="card-title">Decision Needed</div><div class="card-body">Confirm final mix, artwork, and public calendar language</div></article>
+              <article class="info-card wide clickable-card" tabindex="0" data-screen="dashboard"><div class="card-title">Release Readiness</div><div class="card-body">Working marker: 30% — replace with Notion status when formalized</div><div class="readiness"><span style="width:30%"></span></div></article>
+              <article class="info-card clickable-card" tabindex="0" data-screen="calendar"><div class="card-title">Quick Actions</div><div class="card-body">Listening note · Visual pass · Copy approval</div></article>
             </div>
-            <div class="quick-actions"><button class="pixel-button">NEW MIX PASS</button><button class="pixel-button">LOG SESSION</button><button class="pixel-button">NEW DECISION</button></div>
+            <div class="quick-actions"><button class="pixel-button" data-screen="tracks">MIX PASS</button><button class="pixel-button" data-screen="dashboard">LOG SESSION</button><button class="pixel-button" data-screen="backmatter">NEW DECISION</button></div>
+          </section>
+
+          <section class="screen" id="screen-tracks">
+            <div class="page-heading"><div><h2>Songs / Tracks</h2><p>Release-facing track status, current attention, and future dashboard hooks.</p></div><div class="pixel-label">audio + release map</div></div>
+            <div class="tracks-grid">
+              <article class="track-card primary"><div class="track-kicker"><span class="status-dot"></span>Lead single</div><strong class="track-title">Self Love / Clark Gable</strong><div class="track-meta">Active focus. Mix/listening notes, artwork, release copy, and final package readiness.</div><div class="action-row"><button class="action-chip" data-screen="today">Today</button><button class="action-chip" data-screen="calendar">Calendar</button></div></article>
+              <article class="track-card"><div class="track-kicker">Bridge</div><strong class="track-title">Taylor Swift Mashup Set</strong><div class="track-meta">Fan-facing social bridge after the lead single rollout begins.</div><div class="action-row"><button class="action-chip" data-screen="calendar">Timeline</button><button class="action-chip" data-screen="backmatter">Assets</button></div></article>
+              <article class="track-card"><div class="track-kicker">EP</div><strong class="track-title">Missa Brevis</strong><div class="track-meta">Liturgical vocal architecture; sacred/classical REDBIRD layer.</div><div class="action-row"><button class="action-chip" data-screen="backmatter">References</button><button class="action-chip" data-screen="calendar">Timeline</button></div></article>
+              <article class="track-card"><div class="track-kicker">EP</div><strong class="track-title">Looping Pedal EP</strong><div class="track-meta">Performance-process material, live looping, and documentation.</div><div class="action-row"><button class="action-chip" data-screen="calendar">Timeline</button><button class="action-chip" data-screen="dashboard">Dashboard</button></div></article>
+              <article class="track-card primary"><div class="track-kicker">Album</div><strong class="track-title">REDBIRD</strong><div class="track-meta">Full album, sequencing, final rollout, and post-album artifact layer.</div><div class="action-row"><button class="action-chip" data-screen="dashboard">Dashboard</button><button class="action-chip" data-screen="backmatter">Back matter</button></div></article>
+              <article class="track-card"><div class="track-kicker">Future data</div><strong class="track-title">Track database sync</strong><div class="track-meta">Next useful build: generate this screen from a Notion-backed track/status JSON snapshot.</div><div class="action-row"><button class="action-chip" data-screen="dashboard">Queue</button></div></article>
+            </div>
           </section>
 
           <section class="screen" id="screen-calendar">
             <div class="page-heading"><div><h2>Release Calendar</h2><p>The updated REDBIRD cycle from private preparation through post-album follow-through.</p></div><div class="pixel-label">July 2026 → March 2027</div></div>
             <div class="release-list">
-              <article class="release-row prep"><div class="month">JULY</div><div><div class="release-name">Private Production</div><div class="release-sub">Revision, source-of-truth cleanup, artwork direction, metadata, rollout prep</div></div><div class="release-type">PREP</div></article>
-              <article class="release-row prep"><div class="month">AUG</div><div><div class="release-name">Soft Campaign</div><div class="release-sub">Press-kit/listening prep, teaser assets, scheduling, close-circle preview energy</div></div><div class="release-type">SOFT</div></article>
-              <article class="release-row lead"><div class="month">SEPT</div><div><div class="release-name">Self Love / Clark Gable</div><div class="release-sub">Lead single anchored to Louisville Pride / songwriter-workshop anniversary narrative</div></div><div class="release-type">SINGLE</div></article>
-              <article class="release-row"><div class="month">OCT</div><div><div class="release-name">Taylor Swift Mashup Set</div><div class="release-sub">Fan-facing social bridge</div></div><div class="release-type">MASHUP</div></article>
-              <article class="release-row"><div class="month">NOV</div><div><div class="release-name">Missa Brevis</div><div class="release-sub">Liturgical vocal architecture</div></div><div class="release-type">EP</div></article>
-              <article class="release-row"><div class="month">DEC</div><div><div class="release-name">Looping Pedal EP</div><div class="release-sub">Looping pedal / live-process material</div></div><div class="release-type">EP</div></article>
-              <article class="release-row album"><div class="month">JAN</div><div><div class="release-name">REDBIRD</div><div class="release-sub">Full album, sequencing, final rollout</div></div><div class="release-type">ALBUM</div></article>
-              <article class="release-row post"><div class="month">FEB–MAR</div><div><div class="release-name">Post-Album Cycle</div><div class="release-sub">Videos, zine/flipbook artifact, remixes, live set, festival/grant follow-through</div></div><div class="release-type">AFTER</div></article>
+              <article class="release-row prep clickable-card" tabindex="0" data-screen="dashboard"><div class="month">JULY</div><div><div class="release-name">Private Production</div><div class="release-sub">Revision, source-of-truth cleanup, artwork direction, metadata, rollout prep</div></div><div class="release-type">PREP</div></article>
+              <article class="release-row prep clickable-card" tabindex="0" data-screen="today"><div class="month">AUG</div><div><div class="release-name">Soft Campaign</div><div class="release-sub">Press-kit/listening prep, teaser assets, scheduling, close-circle preview energy</div></div><div class="release-type">SOFT</div></article>
+              <article class="release-row lead clickable-card" tabindex="0" data-screen="tracks"><div class="month">SEPT</div><div><div class="release-name">Self Love / Clark Gable</div><div class="release-sub">Lead single anchored to Louisville Pride / songwriter-workshop anniversary narrative</div></div><div class="release-type">SINGLE</div></article>
+              <article class="release-row clickable-card" tabindex="0" data-screen="tracks"><div class="month">OCT</div><div><div class="release-name">Taylor Swift Mashup Set</div><div class="release-sub">Fan-facing social bridge</div></div><div class="release-type">MASHUP</div></article>
+              <article class="release-row clickable-card" tabindex="0" data-screen="tracks"><div class="month">NOV</div><div><div class="release-name">Missa Brevis</div><div class="release-sub">Liturgical vocal architecture</div></div><div class="release-type">EP</div></article>
+              <article class="release-row clickable-card" tabindex="0" data-screen="tracks"><div class="month">DEC</div><div><div class="release-name">Looping Pedal EP</div><div class="release-sub">Looping pedal / live-process material</div></div><div class="release-type">EP</div></article>
+              <article class="release-row album clickable-card" tabindex="0" data-screen="tracks"><div class="month">JAN</div><div><div class="release-name">REDBIRD</div><div class="release-sub">Full album, sequencing, final rollout</div></div><div class="release-type">ALBUM</div></article>
+              <article class="release-row post clickable-card" tabindex="0" data-screen="backmatter"><div class="month">FEB–MAR</div><div><div class="release-name">Post-Album Cycle</div><div class="release-sub">Videos, zine/flipbook artifact, remixes, live set, festival/grant follow-through</div></div><div class="release-type">AFTER</div></article>
             </div>
           </section>
 
           <section class="screen" id="screen-backmatter">
             <div class="page-heading"><div><h2>Back Matter</h2><p>Reference material, source files, and supporting documents.</p></div><div class="pixel-label">archive layer</div></div>
             <div class="reference-list">
-              <article class="reference-row"><span>📖</span><div><div class="ref-title">Project Bible</div><div class="ref-sub">Vision, language, structure, and album direction</div></div></article>
-              <article class="reference-row"><span>🎚️</span><div><div class="ref-title">Pythagorean Tuning Configuration</div><div class="ref-sub">Moving lines stay Pythagorean; sustained arrivals may lean toward just intonation</div></div></article>
-              <article class="reference-row"><span>🎛️</span><div><div class="ref-title">Production Dashboard</div><div class="ref-sub">Systems, workflow, and workbook references</div></div></article>
-              <article class="reference-row"><span>🏛️</span><div><div class="ref-title">Salt Lick Materials</div><div class="ref-sub">Grant-facing application materials and budget notes</div></div></article>
-              <article class="reference-row"><span>🗃️</span><div><div class="ref-title">File Naming & Organization</div><div class="ref-sub">Rules, source files, exports, masters, stems</div></div></article>
+              <article class="reference-row clickable-card" tabindex="0" data-screen="dashboard"><span>📖</span><div><div class="ref-title">Project Bible</div><div class="ref-sub">Vision, language, structure, and album direction</div></div></article>
+              <article class="reference-row clickable-card" tabindex="0" data-screen="tracks"><span>🎚️</span><div><div class="ref-title">Pythagorean Tuning Configuration</div><div class="ref-sub">Moving lines stay Pythagorean; sustained arrivals may lean toward just intonation</div></div></article>
+              <article class="reference-row clickable-card" tabindex="0" data-screen="dashboard"><span>🎛️</span><div><div class="ref-title">Production Dashboard</div><div class="ref-sub">Systems, workflow, and workbook references</div></div></article>
+              <article class="reference-row clickable-card" tabindex="0" data-screen="calendar"><span>🏛️</span><div><div class="ref-title">Salt Lick Materials</div><div class="ref-sub">Grant-facing application materials and budget notes</div></div></article>
+              <article class="reference-row clickable-card" tabindex="0" data-screen="dashboard"><span>🗃️</span><div><div class="ref-title">File Naming & Organization</div><div class="ref-sub">Rules, source files, exports, masters, stems</div></div></article>
             </div>
           </section>
         </div>
         <p class="footer-note">Notion remains the operating system. GitHub holds the interface and data snapshots. Netlify displays the portal.</p>
       </section>
     </section>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </main>
   <script src="script.js"></script>
 </body>
