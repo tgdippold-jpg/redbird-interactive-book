@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Book of REDBIRD — v0.6 Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="redbird-app" aria-label="The Book of REDBIRD interactive prototype">
+    <header class="app-topbar">
+      <div class="kicker">REDBIRD // embedded artifact prototype</div>
+      <div class="status-pill">Notion feeds the book</div>
+    </header>
+
+    <section class="book-stage">
+      <aside class="sidebar" aria-label="Book navigation">
+        <div class="sidebar-title">
+          <div class="pixel-bird" aria-hidden="true"><span></span><span class="r"></span><span class="r"></span><span class="r"></span><span class="g"></span><span></span><span></span><span></span><span class="r"></span><span class="r"></span><span class="r"></span><span class="r"></span><span class="g"></span><span></span><span></span><span></span><span class="b"></span><span class="r"></span><span class="r"></span><span class="r"></span><span class="r"></span><span class="g"></span><span></span><span></span><span></span><span></span><span class="r"></span><span class="r"></span><span class="r"></span><span class="r"></span><span class="r"></span><span></span><span></span><span></span><span class="b"></span><span class="b"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div><h1>The Book<br>of Redbird</h1><small>Album Workspace</small></div>
+        </div>
+        <nav class="nav-list">
+          <button class="nav-btn active" data-screen="cover"><span class="nav-icon">📕</span> Cover</button>
+          <button class="nav-btn" data-screen="toc"><span class="nav-icon">📜</span> Contents</button>
+          <button class="nav-btn" data-screen="today"><span class="nav-icon">🕯️</span> REDBIRD Today</button>
+          <button class="nav-btn" data-screen="calendar"><span class="nav-icon">📅</span> Release Calendar</button>
+          <button class="nav-btn" data-screen="backmatter"><span class="nav-icon">🗄️</span> Back Matter</button>
+        </nav>
+      </aside>
+
+      <section class="main-book">
+        <div class="book-frame">
+          <section class="screen active" id="screen-cover">
+            <div class="cover-screen"><div class="cover-book"><div class="pixel-label">OPEN THE ARCHIVE</div><div class="cover-title-small">THE BOOK OF</div><h2>REDBIRD</h2><p>REDBIRD Album Workspace</p><button class="pixel-button" data-screen="toc">OPEN THE BOOK</button></div></div>
+          </section>
+
+          <section class="screen" id="screen-toc">
+            <div class="page-heading"><div><h2>Table of Contents</h2><p>Choose a section of the working book.</p></div><div class="pixel-label">clear names // pixel book UI</div></div>
+            <div class="toc-grid">
+              <div class="toc-item" tabindex="0" data-screen="today"><span>🕯️</span><div><div class="toc-title">REDBIRD Today</div><div class="toc-sub">Daily Office / Working Dashboard</div></div><span class="chev">›</span></div>
+              <div class="toc-item" tabindex="0" data-screen="calendar"><span>📅</span><div><div class="toc-title">Release Calendar</div><div class="toc-sub">September through January rollout</div></div><span class="chev">›</span></div>
+              <div class="toc-item" tabindex="0" data-screen="today"><span>🎼</span><div><div class="toc-title">Songs / Tracks</div><div class="toc-sub">Track status and next actions</div></div><span class="chev">›</span></div>
+              <div class="toc-item" tabindex="0" data-screen="backmatter"><span>🗃️</span><div><div class="toc-title">Archive</div><div class="toc-sub">Files, links, masters, references</div></div><span class="chev">›</span></div>
+              <div class="toc-item" tabindex="0" data-screen="backmatter"><span>📚</span><div><div class="toc-title">References</div><div class="toc-sub">Project bible, tuning, source library</div></div><span class="chev">›</span></div>
+              <div class="toc-item" tabindex="0" data-screen="backmatter"><span>✉️</span><div><div class="toc-title">Patronage</div><div class="toc-sub">Grant and incubator materials</div></div><span class="chev">›</span></div>
+            </div>
+          </section>
+
+          <section class="screen" id="screen-today">
+            <div class="page-heading"><div><h2>REDBIRD Today</h2><p>Daily office / working dashboard for the September 2026 rollout.</p></div><div class="pixel-label">current cockpit</div></div>
+            <div class="dashboard-grid">
+              <article class="info-card"><div class="card-icon">♥</div><div class="card-title">Current Release</div><div class="card-body">Self Love / Clark Gable<br>Lead single</div></article>
+              <article class="info-card"><div class="card-icon">🔎</div><div class="card-title">Current Focus</div><div class="card-body">Finalize mix & visual identity<br>Prepare release copy</div></article>
+              <article class="info-card"><div class="card-icon">⚖️</div><div class="card-title">Decision Needed</div><div class="card-body">Confirm final mix & artwork</div></article>
+              <article class="info-card wide"><div class="card-title">Release Readiness</div><div class="card-body">Placeholder progress: 30% — adjust manually</div><div class="readiness"><span style="width:30%"></span></div></article>
+              <article class="info-card"><div class="card-title">Quick Actions</div><div class="card-body">Mix session · Visual decisions · Copy approval</div></article>
+            </div>
+            <div class="quick-actions"><button class="pixel-button">NEW MIX PASS</button><button class="pixel-button">LOG SESSION</button><button class="pixel-button">NEW DECISION</button></div>
+          </section>
+
+          <section class="screen" id="screen-calendar">
+            <div class="page-heading"><div><h2>Release Calendar</h2><p>The public-facing path through the updated REDBIRD cycle.</p></div><div class="pixel-label">September → January</div></div>
+            <div class="release-list">
+              <article class="release-row"><div class="month">SEPT</div><div><div class="release-name">Self Love / Clark Gable</div><div class="release-sub">Launch lead single & rollout start</div></div><div class="release-type">SINGLE</div></article>
+              <article class="release-row"><div class="month">OCT</div><div><div class="release-name">Taylor Swift Mashup Set</div><div class="release-sub">Fan-facing social bridge</div></div><div class="release-type">MASHUP</div></article>
+              <article class="release-row"><div class="month">NOV</div><div><div class="release-name">Missa Brevis</div><div class="release-sub">Liturgical vocal architecture</div></div><div class="release-type">EP</div></article>
+              <article class="release-row"><div class="month">DEC</div><div><div class="release-name">Looping Pedal EP</div><div class="release-sub">Performance-process documentation</div></div><div class="release-type">EP</div></article>
+              <article class="release-row"><div class="month">JAN</div><div><div class="release-name">REDBIRD</div><div class="release-sub">Full album, sequencing, final rollout</div></div><div class="release-type">ALBUM</div></article>
+            </div>
+          </section>
+
+          <section class="screen" id="screen-backmatter">
+            <div class="page-heading"><div><h2>Back Matter</h2><p>Reference material, source files, and supporting documents.</p></div><div class="pixel-label">archive layer</div></div>
+            <div class="reference-list">
+              <article class="reference-row"><span>📖</span><div><div class="ref-title">Project Bible</div><div class="ref-sub">Vision, language, structure, and album direction</div></div></article>
+              <article class="reference-row"><span>🎚️</span><div><div class="ref-title">Pythagorean Tuning Configuration</div><div class="ref-sub">Moving lines stay Pythagorean; sustained arrivals may lean toward just intonation</div></div></article>
+              <article class="reference-row"><span>🎛️</span><div><div class="ref-title">Production Dashboard</div><div class="ref-sub">Systems, workflow, and workbook references</div></div></article>
+              <article class="reference-row"><span>🏛️</span><div><div class="ref-title">Salt Lick Materials</div><div class="ref-sub">Grant-facing application materials and budget notes</div></div></article>
+              <article class="reference-row"><span>🗃️</span><div><div class="ref-title">File Naming & Organization</div><div class="ref-sub">Rules, source files, exports, masters, stems</div></div></article>
+            </div>
+          </section>
+        </div>
+        <p class="footer-note">Notion remains the operating system. This embedded book is the visual experience layer.</p>
+      </section>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
