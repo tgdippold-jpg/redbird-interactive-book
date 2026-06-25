@@ -1,0 +1,42 @@
+{
+  "version": "0.9",
+  "updated": "2026-06-24",
+  "sourceOfTruth": "Notion",
+  "deployment": {
+    "githubRepo": "tgdippold-jpg/redbird-interactive-book",
+    "netlifySite": "https://redbird-interactive-book.netlify.app",
+    "mode": "static snapshot"
+  },
+  "currentPhase": {
+    "name": "July/August preparation",
+    "publicRolloutStart": "September 2026",
+    "activeRelease": "Self Love / Clark Gable",
+    "status": "prep"
+  },
+  "readiness": [
+    { "area": "Release package", "percent": 35, "status": "building" },
+    { "area": "Audio / listening", "percent": 55, "status": "active review" },
+    { "area": "Files / assets", "percent": 45, "status": "organizing" },
+    { "area": "Visual / zine", "percent": 40, "status": "concepting" },
+    { "area": "Roadmap / tasks", "percent": 60, "status": "structured" }
+  ],
+  "notionSources": [
+    { "module": "Dashboard", "role": "current state and front door" },
+    { "module": "Roadmap + Tasks", "role": "canonical actions and rollout work" },
+    { "module": "Current Release Package", "role": "lead release hub" },
+    { "module": "Audio + Listening", "role": "mix notes and playback checks" },
+    { "module": "Files + Assets", "role": "source links, exports, masters, assets" },
+    { "module": "Visual + Zine Assets", "role": "book, zine, art, typography, visual world" },
+    { "module": "Decision Log", "role": "durable decisions and open questions" }
+  ],
+  "releaseArc": [
+    { "month": "July 2026", "label": "Private production", "type": "prep" },
+    { "month": "August 2026", "label": "Soft campaign", "type": "prep" },
+    { "month": "September 2026", "label": "Self Love / Clark Gable", "type": "single" },
+    { "month": "October 2026", "label": "Taylor Swift mashup set", "type": "bridge" },
+    { "month": "November 2026", "label": "Missa Brevis", "type": "EP" },
+    { "month": "December 2026", "label": "Looping Pedal EP", "type": "EP" },
+    { "month": "January 2027", "label": "REDBIRD full album", "type": "album" },
+    { "month": "February–March 2027", "label": "Post-album cycle", "type": "after" }
+  ]
+}
