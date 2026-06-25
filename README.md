@@ -1,11 +1,18 @@
-# Redbird Interactive Book v0.6
+# Redbird Interactive Book v0.7
 
 This repository contains a static version of the REDBIRD interactive prototype based on the original CodePen project. It is intended as a working prototype for the **REDBIRD Album Workspace** and uses only HTML, CSS, and JavaScript—no external build tools are required.
 
+## Current version
+
+**v0.7** preserves the original mockup direction while making two targeted refinements:
+
+1. The release calendar now follows the current REDBIRD Notion release arc: July 2026 through March 2027.
+2. The visual language remains pixelated, but uses finer pixel texture, dithered overlays, and more shading so the interface feels more detailed rather than blockier.
+
 ## Contents
 
-- `index.html` – The main HTML document defining the structure of the interactive book. It includes the updated release calendar, dashboard, and sections aligned with the September 2026 rollout.
-- `styles.css` – The stylesheet providing the pixel-inspired, sacred-pop aesthetic. It defines the colors, layout, and responsive behaviour.
+- `index.html` – The main HTML document defining the structure of the interactive book. It includes the updated release calendar, dashboard, and sections aligned with the current REDBIRD rollout.
+- `styles.css` – The stylesheet providing the fine-pixel, sacred-pop archive aesthetic. It defines the colors, layout, responsive behavior, texture, dither, and shading.
 - `script.js` – A small script that handles navigation between the screens/pages of the book.
 - `README.md` – This file, providing context and instructions.
 
@@ -32,4 +39,4 @@ Recommended free-account path:
 
 ## Notes
 
-This version retains the original aesthetic of the CodePen prototype, including the pixelated cardinal icon and retro fonts, while updating content to reflect the current REDBIRD release schedule and priorities. Future iterations may refine the design further or port the interactive features into a more mature framework, but the goal of v0.6 is to establish a stable baseline and remove dependence on CodePen.
+This version retains the original aesthetic of the CodePen prototype, including the pixelated cardinal icon and retro fonts, while updating content to reflect the current REDBIRD release schedule and priorities. The goal of v0.7 is not to abandon the pixel language, but to make it feel more detailed, shaded, and artifact-like.
