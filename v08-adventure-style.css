@@ -1,0 +1,152 @@
+/*
+  REDBIRD Interactive Book v0.8
+  Art direction: late-1980s adventure-game dithering.
+  References: Loom, King's Quest / Quest for the Crown, circa-1987 EGA-style UI logic.
+  This file intentionally overrides the v0.7 base stylesheet rather than replacing it.
+*/
+
+:root {
+  --charcoal-blue:#1d2231;
+  --slate:#3d4457;
+  --gold-dim:#947321;
+  --ega-shadow:rgba(31,24,18,.35);
+  --micro-grid:repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0 1px,transparent 1px 2px),repeating-linear-gradient(90deg,rgba(0,0,0,.03) 0 1px,transparent 1px 2px);
+  --ega-dither:repeating-linear-gradient(45deg,rgba(37,33,28,.065) 0 1px,transparent 1px 3px),repeating-linear-gradient(-45deg,rgba(255,248,232,.05) 0 1px,transparent 1px 4px);
+  --checker-dither:linear-gradient(45deg,rgba(83,74,63,.08) 25%,transparent 25%,transparent 75%,rgba(83,74,63,.08) 75%,rgba(83,74,63,.08)),linear-gradient(45deg,rgba(255,250,242,.04) 25%,transparent 25%,transparent 75%,rgba(255,250,242,.04) 75%,rgba(255,250,242,.04));
+}
+
+body {
+  background:
+    var(--micro-grid),
+    radial-gradient(circle at 18% 12%,rgba(212,175,55,.12),transparent 22%),
+    radial-gradient(circle at 82% 18%,rgba(90,20,24,.32),transparent 28%),
+    linear-gradient(180deg,#17151a 0%,#221918 38%,#111015 100%);
+}
+
+.redbird-app {
+  border-radius:10px;
+  background:
+    var(--micro-grid),
+    linear-gradient(180deg,rgba(66,32,34,.16),transparent 22%,transparent 76%,rgba(40,20,21,.18)),
+    linear-gradient(90deg,rgba(104,20,20,.24),transparent 14%,transparent 86%,rgba(104,20,20,.18)),
+    rgba(19,16,18,.96);
+  box-shadow:0 0 0 1px rgba(37,32,28,.95),0 12px 0 rgba(15,12,10,.5),0 24px 68px rgba(0,0,0,.52);
+}
+
+.kicker { font-size:8px; letter-spacing:.04em; text-shadow:1px 1px 0 rgba(0,0,0,.55); }
+.status-pill {
+  font-size:7px;
+  background:var(--micro-grid),linear-gradient(180deg,rgba(103,18,19,.86),rgba(71,20,20,.96));
+  border-color:rgba(212,175,55,.55);
+  box-shadow:inset 1px 1px 0 rgba(255,255,255,.06),inset -1px -1px 0 rgba(0,0,0,.28);
+}
+
+.book-stage { border-radius:8px; background:var(--charcoal-blue); }
+.sidebar {
+  background:
+    var(--checker-dither),
+    linear-gradient(180deg,rgba(100,18,19,.86),rgba(61,34,24,.96)),
+    var(--redbird);
+  background-size:4px 4px,100% 100%,auto;
+}
+
+.pixel-bird { width:32px; height:24px; filter:drop-shadow(1px 1px 0 rgba(0,0,0,.52)); }
+.pixel-bird .r, .r { background:linear-gradient(180deg,var(--redbird-bright),var(--redbird-dark)); }
+.pixel-bird .g, .g { background:linear-gradient(180deg,var(--gold),var(--gold-dim)); }
+.pixel-bird .b, .b { background:linear-gradient(180deg,var(--slate),var(--dark-brown)); }
+
+.sidebar h1 { text-shadow:2px 2px 0 rgba(0,0,0,.52); }
+.sidebar small { font-size:7px; }
+
+.nav-btn {
+  border-radius:6px;
+  background:
+    var(--micro-grid),
+    linear-gradient(180deg,rgba(55,42,34,.58),rgba(33,28,28,.72));
+  box-shadow:inset 1px 1px 0 rgba(255,255,255,.06),inset -1px -1px 0 rgba(0,0,0,.3),1px 1px 0 rgba(0,0,0,.22);
+}
+.nav-btn:hover,
+.nav-btn:focus {
+  background:var(--micro-grid),linear-gradient(180deg,rgba(121,92,32,.26),rgba(55,42,34,.82));
+}
+.nav-btn.active {
+  background:var(--micro-grid),linear-gradient(180deg,rgba(247,229,186,.18),rgba(87,53,39,.7));
+}
+
+.main-book {
+  background:
+    var(--ega-dither),
+    radial-gradient(circle at top right,rgba(212,175,55,.14),transparent 32%),
+    linear-gradient(180deg,rgba(252,244,224,.08),rgba(97,26,22,.06));
+}
+
+.book-frame {
+  border-radius:8px;
+  background:
+    var(--checker-dither),
+    linear-gradient(90deg,rgba(63,37,20,.92) 0 2.6%,transparent 2.6% 97.4%,rgba(63,37,20,.92) 97.4% 100%),
+    linear-gradient(180deg,rgba(247,238,212,.95),rgba(235,223,191,.98));
+  background-size:4px 4px,auto,auto;
+  border-color:rgba(212,175,55,.52);
+  box-shadow:inset 0 0 0 2px rgba(255,249,232,.28),inset 0 0 0 5px rgba(122,15,15,.08),0 10px 28px var(--shadow);
+}
+.book-frame::before { border-radius:4px; }
+.book-frame::after {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 4px);
+  mix-blend-mode:multiply;
+  opacity:.4;
+  pointer-events:none;
+}
+
+.cover-book {
+  border-radius:10px;
+  background:
+    var(--micro-grid),
+    radial-gradient(circle at 28% 20%,rgba(212,175,55,.12),transparent 24%),
+    linear-gradient(180deg,rgba(160,25,23,.88),rgba(75,16,14,.98)),
+    var(--redbird);
+  box-shadow:0 12px 0 rgba(28,17,14,.3),0 20px 42px rgba(0,0,0,.35),inset 0 0 0 4px rgba(30,27,24,.14),inset 0 0 0 8px rgba(212,175,55,.08);
+}
+.cover-book::before { inset:22px; border-radius:4px; }
+.cover-book::after {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:var(--checker-dither);
+  background-size:4px 4px;
+  opacity:.28;
+  border-radius:8px;
+  pointer-events:none;
+}
+.cover-title-small { font-size:9px; }
+.cover-book h2 { text-shadow:2px 2px 0 rgba(0,0,0,.45),-1px -1px 0 rgba(251,242,220,.12); }
+
+.pixel-button {
+  font-size:8px;
+  border-radius:5px;
+  background:var(--micro-grid),linear-gradient(180deg,var(--dark-brown),#2a180f);
+  box-shadow:0 3px 0 rgba(0,0,0,.38),inset 1px 1px 0 rgba(255,255,255,.08),inset -1px -1px 0 rgba(0,0,0,.25);
+}
+.pixel-button:hover,
+.pixel-button:focus {
+  background:var(--micro-grid),linear-gradient(180deg,var(--oxblood),#351410);
+}
+
+.pixel-label { font-size:7px; letter-spacing:.03em; line-height:1.8; }
+.toc-item,
+.info-card,
+.release-row,
+.reference-row {
+  border-radius:7px;
+  background:var(--checker-dither),linear-gradient(180deg,rgba(249,242,221,.84),rgba(236,226,199,.9));
+  background-size:4px 4px,auto;
+  box-shadow:0 3px 0 var(--ega-shadow),inset 1px 1px 0 rgba(255,255,255,.22),inset -1px -1px 0 rgba(90,74,56,.12);
+}
+.toc-item:hover,
+.toc-item:focus {
+  background:var(--checker-dither),linear-gradient(180deg,rgba(243,232,196,.88),rgba(231,216,181,.94));
+}
+.month, .release-type { font-size:7px; }
