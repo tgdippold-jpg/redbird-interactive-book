@@ -1,18 +1,20 @@
-# Redbird Interactive Book v0.7
+# Redbird Interactive Book v0.8
 
 This repository contains a static version of the REDBIRD interactive prototype based on the original CodePen project. It is intended as a working prototype for the **REDBIRD Album Workspace** and uses only HTML, CSS, and JavaScript—no external build tools are required.
 
 ## Current version
 
-**v0.7** preserves the original mockup direction while making two targeted refinements:
+**v0.8** preserves the original mockup direction while refining the style brief further:
 
-1. The release calendar now follows the current REDBIRD Notion release arc: July 2026 through March 2027.
-2. The visual language remains pixelated, but uses finer pixel texture, dithered overlays, and more shading so the interface feels more detailed rather than blockier.
+1. The release calendar follows the current REDBIRD Notion release arc: July 2026 through March 2027.
+2. The interface stays pixelated, but now leans more specifically into **late-1980s adventure-game** texture language.
+3. Visual references include **Loom**, **King's Quest / Quest for the Crown**, and the finer dithering / beveled-panel look common around **1987**.
 
 ## Contents
 
 - `index.html` – The main HTML document defining the structure of the interactive book. It includes the updated release calendar, dashboard, and sections aligned with the current REDBIRD rollout.
-- `styles.css` – The stylesheet providing the fine-pixel, sacred-pop archive aesthetic. It defines the colors, layout, responsive behavior, texture, dither, and shading.
+- `styles.css` – The base stylesheet for the fine-pixel sacred-pop archive aesthetic.
+- `v08-adventure-style.css` – The v0.8 override layer that pushes the interface toward late-1980s adventure-game dithering, beveled panels, checkerboard shading, and atmospheric pixel texture.
 - `script.js` – A small script that handles navigation between the screens/pages of the book.
 - `README.md` – This file, providing context and instructions.
 
@@ -39,4 +41,4 @@ Recommended free-account path:
 
 ## Notes
 
-This version retains the original aesthetic of the CodePen prototype, including the pixelated cardinal icon and retro fonts, while updating content to reflect the current REDBIRD release schedule and priorities. The goal of v0.7 is not to abandon the pixel language, but to make it feel more detailed, shaded, and artifact-like.
+This version retains the original aesthetic of the CodePen prototype, including the pixelated cardinal icon and retro fonts, while updating content to reflect the current REDBIRD release schedule and priorities. The goal of v0.8 is not to abandon the pixel language, but to make it feel more like a late-80s adventure interface: dithered, beveled, atmospheric, and artifact-like.
