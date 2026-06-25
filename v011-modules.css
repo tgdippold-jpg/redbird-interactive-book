@@ -1,0 +1,96 @@
+/* REDBIRD Interactive Book v0.11 — Decision Log and Files / Assets modules */
+
+.portal-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.portal-card,
+.decision-card,
+.asset-card,
+.link-card {
+  background:var(--checker-dither),linear-gradient(180deg,rgba(249,242,221,.86),rgba(235,223,196,.92));
+  background-size:4px 4px,auto;
+  border:1px solid rgba(139,90,43,.42);
+  border-radius:7px;
+  padding:14px;
+  box-shadow:0 3px 0 var(--ega-shadow),inset 1px 1px 0 rgba(255,255,255,.22),inset -1px -1px 0 rgba(90,74,56,.12);
+}
+
+.portal-kicker,
+.decision-status,
+.asset-type,
+.link-label {
+  font-family:'Press Start 2P',monospace;
+  font-size:7px;
+  color:var(--brown);
+  text-transform:uppercase;
+  line-height:1.8;
+}
+
+.portal-title,
+.decision-title,
+.asset-title,
+.link-title {
+  display:block;
+  font-size:21px;
+  color:var(--redbird);
+  font-weight:700;
+  margin:6px 0 4px;
+}
+
+.portal-meta,
+.decision-detail,
+.asset-detail,
+.link-detail {
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.3;
+}
+
+.decision-card.locked { border-color:rgba(212,175,55,.64); }
+.decision-card.active { border-color:rgba(162,23,21,.58); }
+.decision-card.open { border-style:dashed; }
+
+.asset-card.active,
+.asset-card.source { border-color:rgba(162,23,21,.48); }
+.asset-card.pending { border-style:dashed; }
+
+.portal-command-row {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:14px 0 0;
+}
+
+.portal-mini-table {
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+  font-size:15px;
+}
+
+.portal-mini-table th,
+.portal-mini-table td {
+  border-bottom:1px solid rgba(139,90,43,.24);
+  padding:8px 6px;
+  text-align:left;
+  vertical-align:top;
+}
+
+.portal-mini-table th {
+  font-family:'Press Start 2P',monospace;
+  font-size:7px;
+  color:var(--brown);
+  font-weight:400;
+}
+
+.portal-card.full-width {
+  grid-column:1 / -1;
+}
+
+@media (max-width:860px){
+  .portal-grid { grid-template-columns:1fr; }
+  .portal-card.full-width { grid-column:auto; }
+}
