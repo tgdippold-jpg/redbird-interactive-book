@@ -1,29 +1,36 @@
-# Redbird Interactive Book v0.9
+# Redbird Interactive Book v0.10
 
-This repository contains a static version of the REDBIRD interactive prototype based on the original CodePen project. It is intended as a working prototype for the **REDBIRD Album Workspace** and uses only HTML, CSS, and JavaScript.
+This repository contains a static version of the REDBIRD interactive prototype based on the original CodePen project. It is intended as a working prototype for the **REDBIRD Album Workspace** and uses HTML, CSS, JavaScript, and static JSON snapshots.
 
 ## Current version
 
-**v0.9** begins the shift from a simple interactive mockup into a more usable REDBIRD project interface.
+**v0.10** continues the shift from visual mockup into usable project portal.
 
-The core architecture is:
+The core architecture remains:
 
 ```text
 Notion dashboards -> exported JSON snapshot -> GitHub repo -> Netlify interface
 ```
 
-v0.8 proved the aesthetic direction: late-1980s adventure-game dithering, Loom / King's Quest / Quest for the Crown references, beveled panels, checkerboard shading, and atmospheric pixel texture.
+v0.10 adds the first interaction pass:
 
-v0.9 keeps that visual direction but adds a dashboard layer that previews how the live site should eventually be informed by the main REDBIRD Notion pages.
+- Page-corner turn control
+- Soft page-turn animation
+- Hash navigation for direct screen links
+- Clickable dashboard cards
+- Clickable release calendar rows
+- A dedicated Tracks screen
+- Dashboard hydration from `data/redbird-dashboard.sample.json`
 
 ## Contents
 
-- `index.html` - The main HTML document. It now includes a Project Dashboard screen.
-- `styles.css` - The base stylesheet.
-- `v08-adventure-style.css` - The late-1980s adventure-game visual override layer.
+- `index.html` - Main interface. Includes Cover, Dashboard, Contents, Today, Tracks, Calendar, and Back Matter screens.
+- `styles.css` - Base stylesheet.
+- `v08-adventure-style.css` - Late-1980s adventure-game visual override layer.
 - `v09-dashboard.css` - Dashboard styling for KPI cards, pipeline blocks, readiness bars, and tables.
-- `script.js` - Navigation between screens.
-- `data/redbird-dashboard.sample.json` - A sample data snapshot showing how Notion data can eventually feed the interface.
+- `v010-interactions.css` - Interaction styling for clickable cards, page-corner flip, track cards, and toast messages.
+- `script.js` - Navigation, page-turn behavior, hash routing, toast messages, and dashboard JSON hydration.
+- `data/redbird-dashboard.sample.json` - Sample data snapshot showing how Notion data can eventually feed the interface.
 - `docs/v0.9-dashboard-architecture.md` - Architecture notes for the Notion -> GitHub -> Netlify workflow.
 
 ## Source-of-truth rule
@@ -40,21 +47,18 @@ No build step is required.
 
 1. Download or clone this repository.
 2. Open `index.html` in your browser.
-3. Navigate between **Cover**, **Dashboard**, **Contents**, **REDBIRD Today**, **Release Calendar**, and **Back Matter**.
+3. Navigate between **Cover**, **Dashboard**, **Contents**, **REDBIRD Today**, **Tracks**, **Release Calendar**, and **Back Matter**.
 
 ## Deployment
 
-This is designed for static hosting.
-
-Recommended path:
-
-1. Keep this GitHub repository as the source archive.
-2. Connect the repository to Netlify.
-3. Use Netlify to deploy from the repository root.
-4. Embed the live Netlify URL in Notion.
+This is designed for static hosting on Netlify.
 
 ## Next build direction
 
-The next useful step is to make the dashboard consume structured data from `/data/redbird-dashboard.sample.json` instead of hard-coded values.
+Next useful work:
 
-After that, a lightweight Notion export/snapshot workflow can be added so the dashboard reflects the main REDBIRD Notion pages.
+1. Replace more hard-coded cards with JSON-driven modules.
+2. Add actual Notion page URLs or public/private link targets once the dashboard boundaries are decided.
+3. Add a Decision Log screen.
+4. Add a Files / Assets screen.
+5. Build a lightweight Notion export/snapshot workflow.
