@@ -1,0 +1,96 @@
+/* REDBIRD Interactive Book v0.11 — checkpoint 6 page flip and layout polish */
+
+.book-frame:has(#screen-cover.active) .page-corner-flip {
+  display:none;
+}
+
+.page-corner-flip {
+  top:auto !important;
+  right:18px !important;
+  bottom:18px !important;
+  width:54px !important;
+  height:54px !important;
+  border:0 !important;
+  border-radius:0 0 14px 0 !important;
+  background:linear-gradient(135deg,transparent 0 45%,rgba(251,242,220,.96) 46% 100%) !important;
+  color:var(--brown) !important;
+  box-shadow:-4px -4px 0 rgba(139,90,43,.18),-8px -8px 18px rgba(63,37,20,.12) !important;
+  opacity:.82;
+  transform-origin:100% 100%;
+}
+
+.page-corner-flip span {
+  position:absolute;
+  right:7px;
+  bottom:6px;
+  font-size:16px;
+}
+
+.page-corner-flip:hover,
+.page-corner-flip:focus {
+  opacity:1;
+  transform:translate(-2px,-2px) rotate(-2deg) !important;
+}
+
+.screen:not(#screen-cover) {
+  padding-bottom:34px;
+}
+
+.page-heading {
+  align-items:center;
+  margin-inline:auto;
+}
+
+.page-heading > div:first-child {
+  max-width:720px;
+}
+
+.page-heading .pixel-label {
+  text-align:right;
+  max-width:180px;
+}
+
+.dashboard-shell,
+.toc-grid.expanded,
+.tracks-grid,
+.release-list,
+.reference-list,
+.portal-grid {
+  margin-inline:auto;
+  width:100%;
+}
+
+.dashboard-shell,
+.toc-grid.expanded {
+  max-width:920px;
+}
+
+.tracks-grid,
+.release-list,
+.reference-list,
+.portal-grid {
+  max-width:900px;
+}
+
+.footer-note {
+  opacity:.82;
+}
+
+@media (max-width:860px){
+  .page-heading {
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .page-heading .pixel-label {
+    text-align:left;
+    max-width:none;
+  }
+
+  .page-corner-flip {
+    right:10px !important;
+    bottom:10px !important;
+    width:46px !important;
+    height:46px !important;
+  }
+}
