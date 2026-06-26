@@ -1,12 +1,6 @@
 {
-  "version": "0.12",
+  "version": "0.11",
   "updated": "2026-06-24",
-  "sourceOfTruth": "Notion",
-  "deployment": {
-    "githubRepo": "tgdippold-jpg/redbird-interactive-book",
-    "netlifySite": "https://redbird-interactive-book.netlify.app",
-    "mode": "static snapshot"
-  },
   "currentPhase": {
     "name": "July/August preparation",
     "publicRolloutStart": "September 2026",
@@ -29,10 +23,10 @@
       "primary": true
     },
     {
-      "kicker": "Bridge",
+      "kicker": "Companion release",
       "title": "Taylor Swift Mashup Set",
-      "status": "future social bridge",
-      "detail": "Fan-facing social bridge after the lead single rollout begins.",
+      "status": "single + B-side",
+      "detail": "Fan-facing single + B-side companion after the lead release begins.",
       "primary": false
     },
     {
@@ -61,7 +55,7 @@
     { "month": "July 2026", "label": "Private production", "type": "prep", "detail": "Revision, source cleanup, artwork direction, metadata, rollout prep" },
     { "month": "August 2026", "label": "Soft campaign", "type": "prep", "detail": "Press-kit/listening prep, teaser assets, scheduling, close-circle preview" },
     { "month": "September 2026", "label": "Self Love / Clark Gable", "type": "single", "detail": "Lead single anchored to Louisville Pride / workshop anniversary narrative" },
-    { "month": "October 2026", "label": "Taylor Swift mashup set", "type": "bridge", "detail": "Fan-facing social bridge" },
+    { "month": "October 2026", "label": "Taylor Swift mashup set", "type": "B-side", "detail": "Fan-facing single + B-side companion" },
     { "month": "November 2026", "label": "Missa Brevis", "type": "EP", "detail": "Liturgical vocal architecture" },
     { "month": "December 2026", "label": "Looping Pedal EP", "type": "EP", "detail": "Looping pedal / live-process material" },
     { "month": "January 2027", "label": "REDBIRD full album", "type": "album", "detail": "Full album, sequencing, final rollout" },
@@ -70,8 +64,8 @@
   "decisions": [
     {
       "status": "locked",
-      "title": "Notion remains canonical",
-      "detail": "The Netlify book displays summaries and snapshots; it does not replace Notion as the operating system."
+      "title": "September begins the public rollout",
+      "detail": "Self Love / Clark Gable remains the lead release focus."
     },
     {
       "status": "active",
@@ -80,43 +74,26 @@
     },
     {
       "status": "active",
-      "title": "v0.8+ visual language",
+      "title": "Adventure-game visual language",
       "detail": "Late-1980s adventure-game pixel interface with Loom / King's Quest-style dithering."
     },
     {
-      "status": "active",
-      "title": "Self Love / Clark Gable leads rollout",
-      "detail": "Lead release stays focused on September 2026 with current July/August prep."
+      "status": "open",
+      "title": "What belongs in the book?",
+      "detail": "Decide which project details should be visible in the interactive archive."
     },
     {
       "status": "open",
-      "title": "Public/private boundary",
-      "detail": "Decide which Notion-derived data can appear in the deployed interface."
-    },
-    {
-      "status": "open",
-      "title": "Dashboard beauty vs function",
-      "detail": "Keep expanding functionality while restoring the visual quality of the original book mockup."
+      "title": "Beauty vs function",
+      "detail": "Keep expanding function while restoring the visual quality of the original book mockup."
     }
   ],
   "filesAssets": [
     {
-      "type": "repo",
-      "name": "GitHub source repo",
+      "type": "book",
+      "name": "Interactive book",
       "status": "active",
-      "detail": "Versioned code, docs, CSS, script, and JSON snapshots."
-    },
-    {
-      "type": "site",
-      "name": "Netlify live site",
-      "status": "active",
-      "detail": "Hosted interactive book and review layer."
-    },
-    {
-      "type": "notion",
-      "name": "Visual + Zine Assets",
-      "status": "source",
-      "detail": "Book, zine, moodboard, typography, and artifact direction."
+      "detail": "The live project archive and review surface."
     },
     {
       "type": "audio",
@@ -125,31 +102,36 @@
       "detail": "Mix review, listening notes, playback context, and unresolved audio decisions."
     },
     {
+      "type": "visual",
+      "name": "Visual + Zine Assets",
+      "status": "source",
+      "detail": "Book, zine, moodboard, typography, and artifact direction."
+    },
+    {
       "type": "archive",
-      "name": "Dropbox / source files",
-      "status": "pending link policy",
-      "detail": "Long-term file host and source-file archive."
+      "name": "Source files",
+      "status": "pending",
+      "detail": "Masters, exports, stems, source links, and long-term project memory."
     }
   ],
   "openQuestions": [
     {
-      "title": "How public should the portal be?",
-      "detail": "Choose public, private, or split public/private builds before exposing real Notion links."
+      "title": "What belongs in the book?",
+      "detail": "Choose which project details should be visible in the interactive archive."
     },
     {
       "title": "How much dashboard depth belongs here?",
-      "detail": "The portal should be useful, but still feel like a book/artifact instead of a generic admin dashboard."
+      "detail": "The book should be useful, but still feel like an artifact instead of a generic admin dashboard."
     },
     {
-      "title": "What should the next live data source be?",
+      "title": "Which section should become real next?",
       "detail": "Best candidates: Tracks, Release Calendar, Decision Log, or Files / Assets."
     }
   ],
   "nextActions": [
     "Keep vertical mobile-first layout as default.",
-    "Render Tracks from JSON snapshot.",
-    "Render Release Calendar from JSON snapshot.",
-    "Add compact open-questions drawer.",
+    "Make the visible copy more user-facing.",
+    "Expand the Table of Contents next.",
     "Restore more atmosphere while preserving function."
   ]
 }
