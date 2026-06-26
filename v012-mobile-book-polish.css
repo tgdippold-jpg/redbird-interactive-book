@@ -1,0 +1,324 @@
+/* REDBIRD Interactive Book v0.12 — mobile-first vertical book polish */
+
+:root {
+  --book-max: 760px;
+}
+
+body {
+  overflow-x:hidden;
+}
+
+.redbird-app {
+  width:min(var(--book-max),96vw);
+  margin:12px auto;
+  padding:10px;
+  border-radius:12px;
+}
+
+.app-topbar {
+  gap:8px;
+  align-items:flex-start;
+  flex-direction:column;
+  margin-bottom:10px;
+  padding-bottom:10px;
+}
+
+.status-pill {
+  white-space:normal;
+  max-width:100%;
+}
+
+.book-stage {
+  display:grid;
+  grid-template-columns:1fr;
+  min-height:auto;
+  border-radius:10px;
+}
+
+.sidebar {
+  border-right:0;
+  border-bottom:2px solid rgba(212,175,55,.38);
+  padding:14px;
+}
+
+.sidebar-title {
+  margin-bottom:12px;
+}
+
+.sidebar h1 {
+  font-size:21px;
+}
+
+.nav-list {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:7px;
+  margin-top:12px;
+}
+
+.nav-btn {
+  padding:9px 8px;
+  font-size:15px;
+  min-height:42px;
+}
+
+.nav-icon {
+  font-size:15px;
+  width:18px;
+}
+
+.main-book {
+  padding:10px;
+}
+
+.book-frame {
+  min-height:calc(100svh - 230px);
+  padding:24px 18px 76px;
+  border-radius:10px;
+}
+
+.book-frame::before {
+  inset:8px;
+}
+
+.screen {
+  min-height:calc(100svh - 310px);
+}
+
+.page-heading {
+  display:block;
+  margin-bottom:18px;
+  padding-bottom:12px;
+}
+
+.page-heading h2 {
+  font-size:clamp(34px,11vw,54px);
+}
+
+.page-heading p {
+  font-size:17px;
+  line-height:1.25;
+}
+
+.page-heading .pixel-label {
+  margin-top:8px;
+}
+
+.cover-screen {
+  min-height:calc(100svh - 330px);
+}
+
+.cover-book {
+  width:min(390px,92%);
+  min-height:430px;
+  padding:42px 28px;
+}
+
+.dashboard-kpis,
+.dashboard-two-column,
+.pipeline-grid,
+.module-grid,
+.toc-grid,
+.tracks-grid,
+.portal-grid {
+  grid-template-columns:1fr !important;
+}
+
+.dashboard-shell,
+.release-list,
+.reference-list,
+.readiness-chart {
+  gap:10px;
+}
+
+.kpi-card,
+.pipeline-card,
+.module-card,
+.chart-card,
+.data-table-card,
+.info-card,
+.toc-item,
+.release-row,
+.reference-row,
+.track-card,
+.portal-card,
+.decision-card,
+.asset-card {
+  padding:13px;
+}
+
+.kpi-value {
+  font-size:25px;
+}
+
+.pipeline-step {
+  min-height:auto;
+}
+
+.pipeline-step::after {
+  content:'';
+}
+
+.readiness-row {
+  grid-template-columns:1fr;
+  gap:5px;
+  padding-bottom:8px;
+  border-bottom:1px solid rgba(139,90,43,.14);
+}
+
+.release-row {
+  grid-template-columns:1fr;
+  gap:7px;
+}
+
+.release-type {
+  text-align:left;
+}
+
+.data-table-card {
+  overflow-x:auto;
+}
+
+.data-table,
+.portal-mini-table {
+  min-width:520px;
+}
+
+.footer-note {
+  font-size:14px;
+  line-height:1.25;
+  padding:0 12px;
+}
+
+.page-corner-flip {
+  right:12px;
+  bottom:12px;
+  width:48px;
+  height:48px;
+  border-radius:0 0 8px 0;
+}
+
+.toast {
+  bottom:16px;
+  font-size:15px;
+}
+
+.open-questions-toggle {
+  position:sticky;
+  bottom:12px;
+  z-index:5;
+  display:flex;
+  justify-content:flex-end;
+  pointer-events:none;
+  margin-top:14px;
+}
+
+.open-questions-toggle button {
+  pointer-events:auto;
+}
+
+.drawer-panel {
+  position:fixed;
+  left:50%;
+  bottom:78px;
+  transform:translateX(-50%) translateY(12px);
+  width:min(680px,92vw);
+  max-height:min(520px,68vh);
+  overflow:auto;
+  background:var(--checker-dither),linear-gradient(180deg,rgba(249,242,221,.97),rgba(233,220,190,.98));
+  background-size:4px 4px,auto;
+  border:2px solid rgba(212,175,55,.7);
+  border-radius:10px;
+  box-shadow:0 18px 48px rgba(0,0,0,.52),inset 1px 1px 0 rgba(255,255,255,.28);
+  padding:16px;
+  z-index:20;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .18s ease,transform .18s ease;
+}
+
+.drawer-panel.open {
+  opacity:1;
+  pointer-events:auto;
+  transform:translateX(-50%) translateY(0);
+}
+
+.drawer-panel h3 {
+  margin:0 0 10px;
+  color:var(--redbird);
+  font-size:30px;
+  line-height:.95;
+}
+
+.drawer-list {
+  display:grid;
+  gap:9px;
+}
+
+.drawer-item {
+  border:1px solid rgba(139,90,43,.32);
+  border-radius:7px;
+  background:rgba(251,242,220,.55);
+  padding:10px;
+}
+
+.drawer-item strong {
+  display:block;
+  color:var(--ink);
+  font-size:18px;
+}
+
+.drawer-item span {
+  color:var(--muted);
+  font-size:15px;
+}
+
+.drawer-close {
+  float:right;
+  margin-left:10px;
+}
+
+@media (min-width:900px){
+  :root { --book-max: 860px; }
+
+  .redbird-app {
+    margin:24px auto;
+    padding:14px;
+  }
+
+  .app-topbar {
+    flex-direction:row;
+    align-items:center;
+  }
+
+  .nav-list {
+    grid-template-columns:repeat(4,minmax(0,1fr));
+  }
+
+  .book-frame {
+    padding:32px 38px 82px;
+    min-height:720px;
+  }
+
+  .screen {
+    min-height:610px;
+  }
+
+  .dashboard-kpis {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  .dashboard-two-column,
+  .portal-grid,
+  .tracks-grid,
+  .toc-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+@media (min-width:1180px){
+  :root { --book-max: 920px; }
+
+  .redbird-app {
+    width:min(var(--book-max),88vw);
+  }
+}
