@@ -4,7 +4,7 @@ This repository contains a static version of the REDBIRD interactive prototype b
 
 ## Current version
 
-**v0.11 checkpoints 6–8** complete the page polish, terminology verification, and logging pass.
+**v0.11 checkpoints 9–11** complete the stabilization, Today rebuild, and aesthetic/sound-reference pass.
 
 ## Completed checkpoints
 
@@ -62,6 +62,24 @@ This repository contains a static version of the REDBIRD interactive prototype b
 - Netlify project state was checked after the latest GitHub commits.
 - Notion Mockup Lab was updated with checkpoint status.
 
+### Checkpoint 9 — review + stabilization pass
+
+- Added a Review + Stabilization screen.
+- Captured nav, TOC, dashboard, Today, mobile feel, and visual-balance watch items.
+- Added the screen to navigation and the page-turn sequence.
+
+### Checkpoint 10 — REDBIRD Today rebuild
+
+- Rebuilt REDBIRD Today as a daily cockpit.
+- Added current focus, latest listening notes, open decisions, next useful action, and release readiness.
+- Routed Today actions to Current Release, Audio, Visual, Files, Roadmap, and Dashboard.
+
+### Checkpoint 11 — aesthetic / sound / game-reference pass
+
+- Added an Aesthetic + Sound Lab screen.
+- Captured Loom / King's Quest, Castlevania, Game Boy/pixel type, map logic, and UI cue direction.
+- Added optional non-autoplay sound cue prototypes for page turn, item found, archive key, and unavailable/error states.
+
 ## Contents
 
 - `index.html` - Main interface shell. Includes the core screens and user-facing copy.
@@ -70,11 +88,13 @@ This repository contains a static version of the REDBIRD interactive prototype b
 - `v09-dashboard.css` - Base dashboard styling for KPI cards, project-area blocks, readiness bars, and tables.
 - `v010-interactions.css` - Interaction styling for clickable cards, page-corner flip, track cards, and toast messages.
 - `v011-dashboard-cleanup.css` - Checkpoint 2 dashboard cleanup styling.
-- `v011-toc-expansion.css` - Checkpoint 3 expanded Table of Contents styling; imports the checkpoint 6 page polish layer.
+- `v011-toc-expansion.css` - Checkpoint 3 expanded Table of Contents styling; imports later polish layers.
 - `v011-page-polish.css` - Checkpoint 6 page flip and layout polish styling.
+- `v011-checkpoints-9-11.css` - Styling for stabilization, Today cockpit, and aesthetic/sound lab screens.
 - `v011-modules.css` - Styling for Decision Log and Files / Assets module cards.
 - `v012-mobile-book-polish.css` - Mobile-first vertical book polish and Open Questions drawer styling.
 - `script.js` - Navigation, page-turn behavior, hash routing, toast messages, project data hydration, dynamic portal modules, route cleanup, and drawer behavior.
+- `v011-checkpoints-9-11.js` - Checkpoints 9–11 behavior: stabilization screen, Today rebuild, aesthetic/sound lab, and optional sound cue prototypes.
 - `data/redbird-dashboard.sample.json` - Sample structured project data for dashboard, readiness, tracks, calendar, decisions, assets, and open questions.
 - `docs/v0.9-dashboard-architecture.md` - Development architecture notes.
 
@@ -84,12 +104,12 @@ No build step is required.
 
 1. Download or clone this repository.
 2. Open `index.html` in your browser.
-3. Navigate between **Cover**, **Dashboard**, **Contents**, **REDBIRD Today**, **Current Release Package**, **Tracks**, **Audio + Listening**, **Visual + Zine Assets**, **Release Calendar**, **Roadmap + Tasks**, **Decision Log**, **Files / Assets**, **Style References**, **Grant / Salt Lick Materials**, and **Back Matter**.
+3. Navigate between **Cover**, **Dashboard**, **Contents**, **REDBIRD Today**, **Current Release Package**, **Tracks**, **Audio + Listening**, **Visual + Zine Assets**, **Release Calendar**, **Roadmap + Tasks**, **Decision Log**, **Files / Assets**, **Style References**, **Grant / Salt Lick Materials**, **Review + Stabilization**, **Aesthetic + Sound Lab**, and **Back Matter**.
 
 ## Next build direction
 
 Next useful work:
 
-1. Add more detailed release-specific placeholder pages for Self Love / Clark Gable, Taylor Mashup Set, Missa Brevis, Looping Pedal EP, and REDBIRD Album.
-2. Review the live page flip and spacing pass on mobile.
+1. Complete the skipped checkpoint 5: release-specific placeholder pages for Self Love / Clark Gable, Taylor Mashup Set, Missa Brevis, Looping Pedal EP, and REDBIRD Album.
+2. Review the live page on mobile and note spacing, sound-cue, and route issues.
 3. Decide what should remain visible in the interactive book versus tucked away in project notes.
