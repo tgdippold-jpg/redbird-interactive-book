@@ -153,12 +153,13 @@ function createPortalScreens() {
   ensureStylesheet('v011-modules.css');
   ensureStylesheet('v012-mobile-book-polish.css');
   ensureStylesheet('v011-dashboard-cleanup.css');
+  ensureStylesheet('v011-toc-expansion.css');
 
   const status = document.querySelector('.status-pill');
-  if (status) status.textContent = 'v0.11 · dashboard cleanup';
+  if (status) status.textContent = 'v0.11 · contents expansion';
 
   const title = document.querySelector('title');
-  if (title) title.textContent = 'The Book of REDBIRD — v0.11 Dashboard Cleanup';
+  if (title) title.textContent = 'The Book of REDBIRD — v0.11 TOC Expansion';
 
   addNavButton('decisions', '✦', 'Decisions');
   addNavButton('files', '▤', 'Files');
