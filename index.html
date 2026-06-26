@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Book of REDBIRD — v0.11 User-Facing Cleanup</title>
+  <title>The Book of REDBIRD — v0.11 Dashboard Cleanup</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="v08-adventure-style.css" />
   <link rel="stylesheet" href="v09-dashboard.css" />
   <link rel="stylesheet" href="v010-interactions.css" />
+  <link rel="stylesheet" href="v011-dashboard-cleanup.css" />
 </head>
 <body>
   <main class="redbird-app" aria-label="The Book of REDBIRD interactive archive">
     <header class="app-topbar">
       <div class="kicker">REDBIRD // interactive album archive</div>
-      <div class="status-pill">v0.11 · language scrub</div>
+      <div class="status-pill">v0.11 · dashboard cleanup</div>
     </header>
 
     <section class="book-stage">
@@ -44,24 +45,28 @@
           <section class="screen" id="screen-dashboard">
             <div class="page-heading"><div><h2>Project Dashboard</h2><p>Where the REDBIRD rollout stands now.</p></div><div class="pixel-label">current project view</div></div>
             <div class="dashboard-shell">
-              <div class="dashboard-kpis">
-                <article class="kpi-card clickable-card" tabindex="0" data-screen="today"><div class="kpi-label">Active release</div><div class="kpi-value" id="kpi-active-release">SL/CG</div><div class="kpi-note">Self Love / Clark Gable</div></article>
-                <article class="kpi-card clickable-card" tabindex="0" data-screen="calendar"><div class="kpi-label">Rollout start</div><div class="kpi-value" id="kpi-rollout-start">Sept</div><div class="kpi-note">Public release month</div></article>
-                <article class="kpi-card clickable-card" tabindex="0" data-screen="tracks"><div class="kpi-label">Current phase</div><div class="kpi-value" id="kpi-mode">Prep</div><div class="kpi-note">July/August buildout</div></article>
-                <article class="kpi-card clickable-card" tabindex="0" data-screen="today"><div class="kpi-label">Latest update</div><div class="kpi-value">Now</div><div class="kpi-note">Review what needs attention</div></article>
+              <div class="dashboard-focus">
+                <article class="focus-card primary clickable-card" tabindex="0" data-screen="today"><div class="focus-label">Current release</div><strong class="focus-title">Self Love / Clark Gable</strong><div class="focus-meta">Lead single focus for the September rollout.</div></article>
+                <article class="focus-card clickable-card" tabindex="0" data-screen="calendar"><div class="focus-label">Release path</div><strong class="focus-title">September</strong><div class="focus-meta">Public rollout begins after July/August prep.</div></article>
+              </div>
+
+              <div class="dashboard-kpis compact">
+                <article class="kpi-card clickable-card" tabindex="0" data-screen="tracks"><div class="kpi-label">Phase</div><div class="kpi-value" id="kpi-mode">Prep</div><div class="kpi-note">Buildout + review</div></article>
+                <article class="kpi-card clickable-card" tabindex="0" data-screen="today"><div class="kpi-label">Next focus</div><div class="kpi-value">Mix</div><div class="kpi-note">Listening notes + final shape</div></article>
+                <article class="kpi-card clickable-card" tabindex="0" data-screen="backmatter"><div class="kpi-label">Assets</div><div class="kpi-value">Open</div><div class="kpi-note">Artwork, copy, files</div></article>
               </div>
 
               <section class="pipeline-card">
                 <div class="pipeline-label">Project areas</div>
-                <div class="pipeline-grid">
-                  <div class="pipeline-step clickable-card" tabindex="0" data-screen="today"><strong>Current Release</strong><span>Lead single focus, release copy, artwork, and approvals.</span></div>
-                  <div class="pipeline-step clickable-card" tabindex="0" data-screen="tracks"><strong>Audio + Listening</strong><span>Mix notes, playback checks, and track-level attention.</span></div>
-                  <div class="pipeline-step clickable-card" tabindex="0" data-screen="backmatter"><strong>Visual + Zine</strong><span>Artwork, book direction, references, and design language.</span></div>
-                  <div class="pipeline-step clickable-card" tabindex="0" data-screen="calendar"><strong>Release Path</strong><span>The route from private prep to album rollout.</span></div>
+                <div class="project-area-grid">
+                  <div class="project-area-card clickable-card" tabindex="0" data-screen="today"><div class="area-label">01</div><strong>Current Release</strong><span>Lead package and next actions.</span></div>
+                  <div class="project-area-card clickable-card" tabindex="0" data-screen="tracks"><div class="area-label">02</div><strong>Audio + Listening</strong><span>Mix notes and playback checks.</span></div>
+                  <div class="project-area-card clickable-card" tabindex="0" data-screen="backmatter"><div class="area-label">03</div><strong>Visual + Zine</strong><span>Artwork and book direction.</span></div>
+                  <div class="project-area-card clickable-card" tabindex="0" data-screen="calendar"><div class="area-label">04</div><strong>Release Path</strong><span>Prep through post-album cycle.</span></div>
                 </div>
               </section>
 
-              <div class="dashboard-two-column">
+              <div class="dashboard-two-column dashboard-clean">
                 <section class="chart-card">
                   <div class="chart-label">Readiness bars</div>
                   <div class="readiness-chart" id="readiness-chart" aria-label="REDBIRD readiness by workspace area">
@@ -72,13 +77,19 @@
                     <div class="readiness-row"><span>Release Package</span><div class="readiness-track"><div class="readiness-fill" style="width:35%"></div></div><span>35%</span></div>
                   </div>
                 </section>
-                <section class="module-card clickable-card" tabindex="0" data-screen="today">
-                  <div class="module-label">Needs attention</div>
-                  <strong>Keep the lead release moving.</strong>
-                  <span>Final mix notes, artwork direction, release copy, metadata, and file readiness are the main open areas.</span>
-                  <div class="dashboard-note">Use this page as a quick read on the album rollout. Deeper pages can hold the details.</div>
+                <section class="attention-card clickable-card" tabindex="0" data-screen="today">
+                  <div class="attention-label">Needs attention</div>
+                  <strong class="attention-title">Lead release package</strong>
+                  <div class="attention-list">
+                    <div class="attention-item">Final mix notes</div>
+                    <div class="attention-item">Artwork direction</div>
+                    <div class="attention-item">Release copy</div>
+                    <div class="attention-item">Metadata + files</div>
+                  </div>
                 </section>
               </div>
+
+              <article class="recent-card clickable-card" tabindex="0" data-screen="today"><div><div class="recent-label">Recent update</div><strong class="recent-title">The book is becoming usable.</strong><div class="recent-meta">The interface is now cleaner, less technical, and more focused on the current REDBIRD rollout.</div></div></article>
             </div>
           </section>
 
@@ -120,7 +131,7 @@
           <section class="screen" id="screen-calendar">
             <div class="page-heading"><div><h2>Release Calendar</h2><p>The path from private prep to full album.</p></div><div class="pixel-label">July 2026 → March 2027</div></div>
             <div class="release-list">
-              <article class="release-row prep clickable-card" tabindex="0" data-screen="dashboard"><div class="month">JULY</div><div><div class="release-name">Private Production</div><div class="release-sub">Revision, source-of-truth cleanup, artwork direction, metadata, rollout prep</div></div><div class="release-type">PREP</div></article>
+              <article class="release-row prep clickable-card" tabindex="0" data-screen="dashboard"><div class="month">JULY</div><div><div class="release-name">Private Production</div><div class="release-sub">Revision, workspace cleanup, artwork direction, metadata, rollout prep</div></div><div class="release-type">PREP</div></article>
               <article class="release-row prep clickable-card" tabindex="0" data-screen="today"><div class="month">AUG</div><div><div class="release-name">Soft Campaign</div><div class="release-sub">Press-kit/listening prep, teaser assets, scheduling, close-circle preview energy</div></div><div class="release-type">SOFT</div></article>
               <article class="release-row lead clickable-card" tabindex="0" data-screen="tracks"><div class="month">SEPT</div><div><div class="release-name">Self Love / Clark Gable</div><div class="release-sub">Lead single anchored to Louisville Pride / songwriter-workshop anniversary narrative</div></div><div class="release-type">SINGLE</div></article>
               <article class="release-row clickable-card" tabindex="0" data-screen="tracks"><div class="month">OCT</div><div><div class="release-name">Taylor Swift Mashup Set</div><div class="release-sub">Fan-facing single + B-side companion</div></div><div class="release-type">B-SIDE</div></article>
