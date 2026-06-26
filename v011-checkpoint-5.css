@@ -1,0 +1,121 @@
+/* REDBIRD Interactive Book v0.11 — checkpoint 5 release placeholder pages */
+
+.release-detail-grid {
+  display:grid;
+  gap:12px;
+  margin-inline:auto;
+  width:100%;
+  max-width:920px;
+}
+
+.release-detail-grid.two {
+  grid-template-columns:1.08fr .92fr;
+}
+
+.release-hero,
+.release-panel {
+  background:var(--checker-dither),linear-gradient(180deg,rgba(249,242,221,.92),rgba(235,223,196,.97));
+  background-size:4px 4px,auto;
+  border:1px solid rgba(139,90,43,.42);
+  border-radius:9px;
+  padding:14px;
+  box-shadow:0 3px 0 var(--ega-shadow),inset 1px 1px 0 rgba(255,255,255,.22),inset -1px -1px 0 rgba(90,74,56,.12);
+}
+
+.release-hero {
+  border-color:rgba(162,23,21,.58);
+  background:var(--checker-dither),linear-gradient(180deg,rgba(252,237,212,.97),rgba(238,220,192,.99));
+}
+
+.release-kicker,
+.release-panel-label {
+  font-family:'Press Start 2P',monospace;
+  font-size:7px;
+  line-height:1.8;
+  text-transform:uppercase;
+  color:var(--brown);
+}
+
+.release-detail-title {
+  display:block;
+  color:var(--redbird);
+  font-size:25px;
+  line-height:1;
+  margin:6px 0 4px;
+}
+
+.release-detail-copy,
+.release-panel-copy {
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.25;
+}
+
+.release-status-row {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  margin-top:12px;
+}
+
+.release-status-pill {
+  border:1px solid rgba(139,90,43,.42);
+  background:var(--micro-grid),rgba(251,242,220,.72);
+  border-radius:8px;
+  padding:10px;
+}
+
+.release-status-pill span {
+  display:block;
+  font-family:'Press Start 2P',monospace;
+  font-size:6px;
+  line-height:1.7;
+  color:var(--brown);
+  text-transform:uppercase;
+}
+
+.release-status-pill strong {
+  display:block;
+  font-size:18px;
+  line-height:1;
+  color:var(--ink);
+  margin-top:4px;
+}
+
+.release-work-list {
+  display:grid;
+  gap:8px;
+  margin-top:10px;
+}
+
+.release-work-list div {
+  display:flex;
+  gap:8px;
+  color:var(--ink);
+  font-size:15px;
+  line-height:1.22;
+}
+
+.release-work-list div::before {
+  content:'';
+  flex:0 0 auto;
+  width:8px;
+  height:8px;
+  margin-top:6px;
+  background:var(--redbird-bright);
+  box-shadow:1px 1px 0 rgba(0,0,0,.25);
+}
+
+.release-command-row {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:12px;
+}
+
+@media (max-width:860px){
+  .release-detail-grid.two,
+  .release-status-row {
+    grid-template-columns:1fr;
+  }
+}
