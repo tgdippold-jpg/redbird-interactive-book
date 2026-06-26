@@ -1,0 +1,45 @@
+/* REDBIRD Interactive Book v0.11 — checkpoint 3 table of contents expansion */
+
+.toc-grid.expanded {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+
+.toc-section-label {
+  grid-column:1 / -1;
+  font-family:'Press Start 2P',monospace;
+  font-size:7px;
+  color:var(--brown);
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  padding:6px 2px 0;
+  opacity:.88;
+}
+
+.toc-grid.expanded .toc-item {
+  min-height:72px;
+}
+
+.toc-grid.expanded .toc-item span:first-child {
+  align-self:flex-start;
+  margin-top:2px;
+}
+
+.toc-grid.expanded .toc-title {
+  line-height:1.05;
+}
+
+.toc-grid.expanded .toc-sub {
+  line-height:1.2;
+  margin-top:3px;
+}
+
+.toc-grid.expanded .chev {
+  align-self:center;
+}
+
+@media (max-width:860px){
+  .toc-grid.expanded {
+    grid-template-columns:1fr;
+  }
+}
