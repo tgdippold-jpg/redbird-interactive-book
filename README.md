@@ -4,7 +4,7 @@ This repository contains a static version of the REDBIRD interactive prototype b
 
 ## Current version
 
-**v0.11 checkpoints 9–11** complete the stabilization, Today rebuild, and aesthetic/sound-reference pass.
+**v0.11 all checkpoints complete** finishes the original cleanup sprint, including the previously skipped release-specific placeholder pages.
 
 ## Completed checkpoints
 
@@ -41,6 +41,13 @@ This repository contains a static version of the REDBIRD interactive prototype b
 - Added route cleanup logic so expanded TOC items and key buttons land on better destinations.
 - Reduced circular navigation by separating Current Release, Audio, Visual, Roadmap, Files, Decisions, Style References, Grant, Calendar, and Back Matter.
 
+### Checkpoint 5 — release-specific placeholder pages
+
+- Added release-specific placeholder pages for Self Love / Clark Gable, Taylor Swift Mashup Set, Missa Brevis, Looping Pedal EP, and REDBIRD Album.
+- Each release page includes release type, rollout month, current status, role in the rollout, open work, and related project-area buttons.
+- Added release-page routing from track cards, release calendar rows, and the expanded Table of Contents.
+- Added `v011-checkpoint-5.css` and `v011-checkpoint-5.js`.
+
 ### Checkpoint 6 — page flip and layout polish
 
 - Added `v011-page-polish.css`.
@@ -58,7 +65,7 @@ This repository contains a static version of the REDBIRD interactive prototype b
 
 ### Checkpoint 8 — log and deploy verification
 
-- Updated README to reflect checkpoints 6–8.
+- Updated README to reflect checkpoint progress.
 - Netlify project state was checked after the latest GitHub commits.
 - Notion Mockup Lab was updated with checkpoint status.
 
@@ -89,6 +96,8 @@ This repository contains a static version of the REDBIRD interactive prototype b
 - `v010-interactions.css` - Interaction styling for clickable cards, page-corner flip, track cards, and toast messages.
 - `v011-dashboard-cleanup.css` - Checkpoint 2 dashboard cleanup styling.
 - `v011-toc-expansion.css` - Checkpoint 3 expanded Table of Contents styling; imports later polish layers.
+- `v011-checkpoint-5.css` - Checkpoint 5 release detail page styling.
+- `v011-checkpoint-5.js` - Checkpoint 5 release-specific placeholder page behavior.
 - `v011-page-polish.css` - Checkpoint 6 page flip and layout polish styling.
 - `v011-checkpoints-9-11.css` - Styling for stabilization, Today cockpit, and aesthetic/sound lab screens.
 - `v011-modules.css` - Styling for Decision Log and Files / Assets module cards.
@@ -104,12 +113,12 @@ No build step is required.
 
 1. Download or clone this repository.
 2. Open `index.html` in your browser.
-3. Navigate between **Cover**, **Dashboard**, **Contents**, **REDBIRD Today**, **Current Release Package**, **Tracks**, **Audio + Listening**, **Visual + Zine Assets**, **Release Calendar**, **Roadmap + Tasks**, **Decision Log**, **Files / Assets**, **Style References**, **Grant / Salt Lick Materials**, **Review + Stabilization**, **Aesthetic + Sound Lab**, and **Back Matter**.
+3. Navigate between **Cover**, **Dashboard**, **Contents**, **REDBIRD Today**, **Current Release Package**, **Self Love / Clark Gable**, **Taylor Swift Mashup Set**, **Missa Brevis**, **Looping Pedal EP**, **REDBIRD Album**, **Tracks**, **Audio + Listening**, **Visual + Zine Assets**, **Release Calendar**, **Roadmap + Tasks**, **Decision Log**, **Files / Assets**, **Style References**, **Grant / Salt Lick Materials**, **Review + Stabilization**, **Aesthetic + Sound Lab**, and **Back Matter**.
 
 ## Next build direction
 
 Next useful work:
 
-1. Complete the skipped checkpoint 5: release-specific placeholder pages for Self Love / Clark Gable, Taylor Mashup Set, Missa Brevis, Looping Pedal EP, and REDBIRD Album.
-2. Review the live page on mobile and note spacing, sound-cue, and route issues.
+1. Review the live page on mobile and note spacing, sound-cue, and route issues.
+2. Replace placeholder release content with final release copy as each package matures.
 3. Decide what should remain visible in the interactive book versus tucked away in project notes.
