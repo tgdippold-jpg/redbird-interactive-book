@@ -1,0 +1,139 @@
+/* REDBIRD Interactive Book v0.11 — checkpoints 9, 10, 11 */
+
+.review-grid,
+.today-cockpit,
+.style-grid,
+.sound-grid {
+  display:grid;
+  gap:12px;
+  margin-inline:auto;
+  width:100%;
+  max-width:920px;
+}
+
+.today-cockpit {
+  grid-template-columns:1.1fr .9fr;
+}
+
+.today-panel,
+.review-card,
+.style-card,
+.sound-card {
+  background:var(--checker-dither),linear-gradient(180deg,rgba(249,242,221,.9),rgba(235,223,196,.96));
+  background-size:4px 4px,auto;
+  border:1px solid rgba(139,90,43,.42);
+  border-radius:9px;
+  padding:14px;
+  box-shadow:0 3px 0 var(--ega-shadow),inset 1px 1px 0 rgba(255,255,255,.22),inset -1px -1px 0 rgba(90,74,56,.12);
+}
+
+.today-panel.hero {
+  border-color:rgba(162,23,21,.58);
+  background:var(--checker-dither),linear-gradient(180deg,rgba(252,237,212,.96),rgba(238,220,192,.98));
+}
+
+.today-kicker,
+.review-kicker,
+.style-kicker,
+.sound-kicker {
+  font-family:'Press Start 2P',monospace;
+  font-size:7px;
+  line-height:1.8;
+  text-transform:uppercase;
+  color:var(--brown);
+}
+
+.today-title,
+.review-title,
+.style-title,
+.sound-title {
+  display:block;
+  color:var(--redbird);
+  font-size:23px;
+  line-height:1;
+  margin:6px 0 4px;
+}
+
+.today-copy,
+.review-copy,
+.style-copy,
+.sound-copy {
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.25;
+}
+
+.today-list,
+.review-list {
+  display:grid;
+  gap:8px;
+  margin-top:10px;
+}
+
+.today-list div,
+.review-list div {
+  display:flex;
+  gap:8px;
+  font-size:15px;
+  line-height:1.22;
+}
+
+.today-list div::before,
+.review-list div::before {
+  content:'';
+  flex:0 0 auto;
+  width:8px;
+  height:8px;
+  margin-top:6px;
+  background:var(--redbird-bright);
+  box-shadow:1px 1px 0 rgba(0,0,0,.25);
+}
+
+.today-panel.full,
+.review-card.full,
+.style-card.full,
+.sound-card.full {
+  grid-column:1 / -1;
+}
+
+.today-actions,
+.sound-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:12px;
+}
+
+.sound-chip {
+  border:1px solid rgba(139,90,43,.5);
+  background:var(--micro-grid),rgba(251,242,220,.72);
+  color:var(--ink);
+  font-family:'Press Start 2P',monospace;
+  font-size:7px;
+  line-height:1.7;
+  padding:10px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  box-shadow:0 2px 0 rgba(63,37,20,.22);
+}
+
+.sound-chip:hover,
+.sound-chip:focus {
+  border-color:var(--gold);
+  background:var(--micro-grid),rgba(212,175,55,.16);
+  outline:none;
+}
+
+.review-card.done {
+  border-color:rgba(36,112,73,.35);
+}
+
+.review-card.watch {
+  border-color:rgba(212,175,55,.72);
+}
+
+@media (max-width:860px){
+  .today-cockpit {
+    grid-template-columns:1fr;
+  }
+}
