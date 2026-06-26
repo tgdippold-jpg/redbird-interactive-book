@@ -1,4 +1,4 @@
-const screenOrder = ['cover', 'dashboard', 'toc', 'today', 'tracks', 'calendar', 'decisions', 'files', 'backmatter'];
+const screenOrder = ['cover', 'dashboard', 'toc', 'today', 'current-release', 'tracks', 'audio', 'visual', 'calendar', 'roadmap', 'decisions', 'files', 'style', 'grant', 'backmatter'];
 let currentScreen = 'cover';
 let toastTimer;
 let dashboardSnapshot = null;
@@ -156,15 +156,77 @@ function createPortalScreens() {
   ensureStylesheet('v011-toc-expansion.css');
 
   const status = document.querySelector('.status-pill');
-  if (status) status.textContent = 'v0.11 · contents expansion';
+  if (status) status.textContent = 'v0.11 · navigation cleanup';
 
   const title = document.querySelector('title');
-  if (title) title.textContent = 'The Book of REDBIRD — v0.11 TOC Expansion';
+  if (title) title.textContent = 'The Book of REDBIRD — v0.11 Navigation Cleanup';
 
   addNavButton('decisions', '✦', 'Decisions');
   addNavButton('files', '▤', 'Files');
-  addTocItem('decisions', '✦', 'Decision Log', 'Locked choices and open questions');
-  addTocItem('files', '▤', 'Files / Assets', 'Sources, exports, and project links');
+
+  createScreen('current-release', `
+    <div class="page-heading"><div><h2>Current Release Package</h2><p>Self Love / Clark Gable and the work needed to get it ready.</p></div><div class="pixel-label">lead release</div></div>
+    <div class="portal-grid">
+      <article class="portal-card full-width"><div class="portal-kicker">Active focus</div><strong class="portal-title">Self Love / Clark Gable</strong><div class="portal-meta">Lead release for the September public rollout. Current work centers on mix review, artwork direction, release copy, metadata, and file readiness.</div></article>
+      <article class="decision-card active clickable-card" tabindex="0" data-screen="audio"><div class="decision-status">Audio</div><strong class="decision-title">Mix + listening</strong><div class="decision-detail">Track playback notes and final-shape decisions.</div></article>
+      <article class="decision-card open clickable-card" tabindex="0" data-screen="visual"><div class="decision-status">Visual</div><strong class="decision-title">Artwork + zine</strong><div class="decision-detail">Book, visual identity, and asset direction.</div></article>
+      <article class="decision-card open clickable-card" tabindex="0" data-screen="decisions"><div class="decision-status">Copy</div><strong class="decision-title">Public language</strong><div class="decision-detail">Release copy, story framing, and calendar wording.</div></article>
+    </div>
+    <div class="portal-command-row"><button class="pixel-button" data-screen="audio">AUDIO</button><button class="pixel-button" data-screen="visual">VISUAL</button><button class="pixel-button" data-screen="files">FILES</button></div>
+  `);
+
+  createScreen('audio', `
+    <div class="page-heading"><div><h2>Audio + Listening</h2><p>Mix notes, playback checks, and track-level attention.</p></div><div class="pixel-label">listening log</div></div>
+    <div class="portal-grid">
+      <article class="portal-card full-width"><div class="portal-kicker">Current audio focus</div><strong class="portal-title">Self Love / Clark Gable mix review</strong><div class="portal-meta">Recent listening work has focused on reverb, splice perception, dynamics, and the gradual crescendo into the midpoint.</div></article>
+      <article class="decision-card active"><div class="decision-status">Note</div><strong class="decision-title">First “Let go”</strong><div class="decision-detail">May need a bigger reverb moment.</div></article>
+      <article class="decision-card active"><div class="decision-status">Note</div><strong class="decision-title">Bern dynamics</strong><div class="decision-detail">May need light evening due to splice-based unevenness.</div></article>
+      <article class="decision-card open"><div class="decision-status">Question</div><strong class="decision-title">Crescendo shape</strong><div class="decision-detail">“Before I can truly love...” may need a more moderate climb.</div></article>
+    </div>
+    <div class="portal-command-row"><button class="pixel-button" data-screen="current-release">RELEASE PACKAGE</button><button class="pixel-button" data-screen="tracks">TRACKS</button><button class="pixel-button" data-screen="decisions">DECISIONS</button></div>
+  `);
+
+  createScreen('visual', `
+    <div class="page-heading"><div><h2>Visual + Zine Assets</h2><p>Artwork, book direction, pixel references, and artifact design.</p></div><div class="pixel-label">visual buildout</div></div>
+    <div class="portal-grid">
+      <article class="portal-card full-width"><div class="portal-kicker">Current direction</div><strong class="portal-title">Late-80s adventure-game book object</strong><div class="portal-meta">The interface should stay atmospheric, dithered, and playable while becoming clearer and more useful.</div></article>
+      <article class="asset-card source clickable-card" tabindex="0" data-screen="style"><div class="asset-type">Reference</div><strong class="asset-title">Game menu language</strong><div class="asset-detail">Loom, King's Quest, Castlevania, Zelda, Game Boy typography.</div></article>
+      <article class="asset-card active"><div class="asset-type">Book</div><strong class="asset-title">Page feel</strong><div class="asset-detail">Book-like proportions, page turns, and clearer spacing.</div></article>
+      <article class="asset-card pending"><div class="asset-type">Zine</div><strong class="asset-title">Artifact layer</strong><div class="asset-detail">Lyric spreads, back matter, visual motifs, and release materials.</div></article>
+    </div>
+    <div class="portal-command-row"><button class="pixel-button" data-screen="style">STYLE REFS</button><button class="pixel-button" data-screen="files">FILES</button><button class="pixel-button" data-screen="current-release">RELEASE</button></div>
+  `);
+
+  createScreen('roadmap', `
+    <div class="page-heading"><div><h2>Roadmap + Tasks</h2><p>Open work, next steps, and what needs attention.</p></div><div class="pixel-label">open work</div></div>
+    <div class="portal-grid">
+      <article class="decision-card active"><div class="decision-status">Now</div><strong class="decision-title">Interactive book cleanup</strong><div class="decision-detail">Language, dashboard, contents, navigation, and detail pages.</div></article>
+      <article class="decision-card active"><div class="decision-status">Now</div><strong class="decision-title">Lead release readiness</strong><div class="decision-detail">Audio, artwork, copy, metadata, and files.</div></article>
+      <article class="decision-card open"><div class="decision-status">Next</div><strong class="decision-title">Detail page buildout</strong><div class="decision-detail">Give each release and project area a meaningful destination.</div></article>
+    </div>
+    <div class="portal-command-row"><button class="pixel-button" data-screen="dashboard">DASHBOARD</button><button class="pixel-button" data-screen="decisions">DECISIONS</button><button class="pixel-button" data-screen="calendar">CALENDAR</button></div>
+  `);
+
+  createScreen('style', `
+    <div class="page-heading"><div><h2>Style References</h2><p>Pixel games, fonts, sprites, textures, and sound cues.</p></div><div class="pixel-label">reference shelf</div></div>
+    <div class="portal-grid">
+      <article class="asset-card source"><div class="asset-type">Adventure</div><strong class="asset-title">Loom / King's Quest</strong><div class="asset-detail">Storybook atmosphere, dithered backgrounds, menu framing.</div></article>
+      <article class="asset-card source"><div class="asset-type">Gothic</div><strong class="asset-title">Castlevania II / III</strong><div class="asset-detail">Menus, item screens, password entry, dark fantasy UI.</div></article>
+      <article class="asset-card source"><div class="asset-type">Sound</div><strong class="asset-title">Zelda-style cues</strong><div class="asset-detail">Page turns, item moments, keys, stairs, chimes, and alerts as references.</div></article>
+      <article class="asset-card source"><div class="asset-type">Type</div><strong class="asset-title">Game Boy / pixel fonts</strong><div class="asset-detail">Compact labels, menu text, and small UI accents.</div></article>
+    </div>
+    <div class="portal-command-row"><button class="pixel-button" data-screen="visual">VISUAL</button><button class="pixel-button" data-screen="backmatter">BACK MATTER</button><button class="pixel-button" data-screen="dashboard">DASHBOARD</button></div>
+  `);
+
+  createScreen('grant', `
+    <div class="page-heading"><div><h2>Grant / Salt Lick Materials</h2><p>Application framing, budget thinking, and project support materials.</p></div><div class="pixel-label">support layer</div></div>
+    <div class="portal-grid">
+      <article class="portal-card full-width"><div class="portal-kicker">Grant-facing frame</div><strong class="portal-title">REDBIRD as album, archive, and artifact</strong><div class="portal-meta">This section should eventually hold concise application materials, budget notes, and project language for support opportunities.</div></article>
+      <article class="decision-card active"><div class="decision-status">Budget</div><strong class="decision-title">Funding frame</strong><div class="decision-detail">Keep support needs clear without crowding the public book experience.</div></article>
+      <article class="decision-card open"><div class="decision-status">Open</div><strong class="decision-title">What becomes public?</strong><div class="decision-detail">Decide what grant language belongs in the live archive versus private notes.</div></article>
+    </div>
+    <div class="portal-command-row"><button class="pixel-button" data-screen="calendar">CALENDAR</button><button class="pixel-button" data-screen="decisions">DECISIONS</button><button class="pixel-button" data-screen="backmatter">BACK MATTER</button></div>
+  `);
 
   createScreen('decisions', `
     <div class="page-heading"><div><h2>Decision Log</h2><p>Locked choices, open questions, and what still needs a call.</p></div><div class="pixel-label">choices + questions</div></div>
@@ -295,20 +357,26 @@ function renderDrawer(data) {
   `).join('');
 }
 
-function enhanceExistingRoutes() {
-  const newDecisionButtons = [...document.querySelectorAll('button')].filter((button) => button.textContent.trim().toLowerCase().includes('decision'));
-  newDecisionButtons.forEach((button) => {
-    button.dataset.screen = 'decisions';
-    delete button.dataset.action;
-  });
-
-  const assetLike = [...document.querySelectorAll('[data-screen="backmatter"]')].filter((element) => {
+function setRouteWhenTextIncludes(terms, screen) {
+  const candidates = document.querySelectorAll('[data-screen], button, .toc-item, .project-area-card, .info-card, .kpi-card, .track-card, .reference-row');
+  candidates.forEach((element) => {
     const text = element.textContent.toLowerCase();
-    return text.includes('asset') || text.includes('files') || text.includes('archive');
+    if (terms.some((term) => text.includes(term))) {
+      element.dataset.screen = screen;
+      delete element.dataset.action;
+    }
   });
-  assetLike.slice(0, 6).forEach((element) => {
-    element.dataset.screen = 'files';
-  });
+}
+
+function enhanceExistingRoutes() {
+  setRouteWhenTextIncludes(['current release package', 'self love / clark gable', 'lead release', 'release readiness'], 'current-release');
+  setRouteWhenTextIncludes(['audio + listening', 'mix pass', 'mix review', 'final mix notes', 'listening note'], 'audio');
+  setRouteWhenTextIncludes(['visual + zine', 'artwork direction', 'visual pass'], 'visual');
+  setRouteWhenTextIncludes(['style references', 'pixel games', 'sound cues'], 'style');
+  setRouteWhenTextIncludes(['roadmap + tasks', 'open work', 'next steps'], 'roadmap');
+  setRouteWhenTextIncludes(['files / assets', 'masters, exports', 'metadata + files'], 'files');
+  setRouteWhenTextIncludes(['grant / salt lick', 'salt lick materials'], 'grant');
+  setRouteWhenTextIncludes(['decisions', 'open decisions', 'new decision', 'public language'], 'decisions');
 }
 
 document.addEventListener('click', (event) => {
@@ -359,6 +427,7 @@ async function hydrateDashboard() {
     renderTracks(data);
     renderReleaseCalendar(data);
     renderDrawer(data);
+    enhanceExistingRoutes();
   } catch (error) {
     console.info('Project data unavailable; using static fallback.', error);
   }
