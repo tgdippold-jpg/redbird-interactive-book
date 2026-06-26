@@ -4,7 +4,7 @@ This repository contains a static version of the REDBIRD interactive prototype b
 
 ## Current version
 
-**v0.11 checkpoint 4** cleans up navigation logic so expanded project areas route to more meaningful destinations.
+**v0.11 checkpoints 6–8** complete the page polish, terminology verification, and logging pass.
 
 ## Completed checkpoints
 
@@ -41,6 +41,27 @@ This repository contains a static version of the REDBIRD interactive prototype b
 - Added route cleanup logic so expanded TOC items and key buttons land on better destinations.
 - Reduced circular navigation by separating Current Release, Audio, Visual, Roadmap, Files, Decisions, Style References, Grant, Calendar, and Back Matter.
 
+### Checkpoint 6 — page flip and layout polish
+
+- Added `v011-page-polish.css`.
+- Loaded checkpoint 6 polish through the existing TOC expansion stylesheet.
+- Hid the page-corner turn control on the cover.
+- Moved the page-corner turn control into the lower page edge.
+- Added a subtler folded-corner treatment.
+- Improved page heading alignment, page width, and breathing room for main sections.
+
+### Checkpoint 7 — terminology verification
+
+- Searched the repository for remaining bridge terminology.
+- Confirmed no `bridge` or `social bridge` references remain.
+- Taylor mashup language remains framed as a fan-facing single + B-side companion.
+
+### Checkpoint 8 — log and deploy verification
+
+- Updated README to reflect checkpoints 6–8.
+- Netlify project state was checked after the latest GitHub commits.
+- Notion Mockup Lab was updated with checkpoint status.
+
 ## Contents
 
 - `index.html` - Main interface shell. Includes the core screens and user-facing copy.
@@ -49,7 +70,8 @@ This repository contains a static version of the REDBIRD interactive prototype b
 - `v09-dashboard.css` - Base dashboard styling for KPI cards, project-area blocks, readiness bars, and tables.
 - `v010-interactions.css` - Interaction styling for clickable cards, page-corner flip, track cards, and toast messages.
 - `v011-dashboard-cleanup.css` - Checkpoint 2 dashboard cleanup styling.
-- `v011-toc-expansion.css` - Checkpoint 3 expanded Table of Contents styling.
+- `v011-toc-expansion.css` - Checkpoint 3 expanded Table of Contents styling; imports the checkpoint 6 page polish layer.
+- `v011-page-polish.css` - Checkpoint 6 page flip and layout polish styling.
 - `v011-modules.css` - Styling for Decision Log and Files / Assets module cards.
 - `v012-mobile-book-polish.css` - Mobile-first vertical book polish and Open Questions drawer styling.
 - `script.js` - Navigation, page-turn behavior, hash routing, toast messages, project data hydration, dynamic portal modules, route cleanup, and drawer behavior.
@@ -69,5 +91,5 @@ No build step is required.
 Next useful work:
 
 1. Add more detailed release-specific placeholder pages for Self Love / Clark Gable, Taylor Mashup Set, Missa Brevis, Looping Pedal EP, and REDBIRD Album.
-2. Refine spacing and page-turn behavior after the dashboard and TOC are reviewed live.
+2. Review the live page flip and spacing pass on mobile.
 3. Decide what should remain visible in the interactive book versus tucked away in project notes.
