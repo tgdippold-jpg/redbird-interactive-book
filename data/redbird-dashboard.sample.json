@@ -1,5 +1,5 @@
 {
-  "version": "0.11",
+  "version": "0.12",
   "updated": "2026-06-24",
   "sourceOfTruth": "Notion",
   "deployment": {
@@ -20,30 +20,63 @@
     { "area": "Visual + Zine", "percent": 40, "status": "concepting" },
     { "area": "Release Package", "percent": 35, "status": "building" }
   ],
-  "notionSources": [
-    { "module": "Dashboard", "role": "current state and front door" },
-    { "module": "Roadmap + Tasks", "role": "canonical actions and rollout work" },
-    { "module": "Current Release Package", "role": "lead release hub" },
-    { "module": "Audio + Listening", "role": "mix notes and playback checks" },
-    { "module": "Files + Assets", "role": "source links, exports, masters, assets" },
-    { "module": "Visual + Zine Assets", "role": "book, zine, art, typography, visual world" },
-    { "module": "Decision Log", "role": "durable decisions and open questions" }
+  "tracks": [
+    {
+      "kicker": "Lead single",
+      "title": "Self Love / Clark Gable",
+      "status": "active focus",
+      "detail": "Mix/listening notes, artwork, release copy, and final package readiness.",
+      "primary": true
+    },
+    {
+      "kicker": "Bridge",
+      "title": "Taylor Swift Mashup Set",
+      "status": "future social bridge",
+      "detail": "Fan-facing social bridge after the lead single rollout begins.",
+      "primary": false
+    },
+    {
+      "kicker": "EP",
+      "title": "Missa Brevis",
+      "status": "planned",
+      "detail": "Liturgical vocal architecture and sacred/classical REDBIRD layer.",
+      "primary": false
+    },
+    {
+      "kicker": "EP",
+      "title": "Looping Pedal EP",
+      "status": "planned",
+      "detail": "Performance-process material, live looping, and documentation.",
+      "primary": false
+    },
+    {
+      "kicker": "Album",
+      "title": "REDBIRD",
+      "status": "final rollout",
+      "detail": "Full album, sequencing, final rollout, and post-album artifact layer.",
+      "primary": true
+    }
   ],
   "releaseArc": [
-    { "month": "July 2026", "label": "Private production", "type": "prep" },
-    { "month": "August 2026", "label": "Soft campaign", "type": "prep" },
-    { "month": "September 2026", "label": "Self Love / Clark Gable", "type": "single" },
-    { "month": "October 2026", "label": "Taylor Swift mashup set", "type": "bridge" },
-    { "month": "November 2026", "label": "Missa Brevis", "type": "EP" },
-    { "month": "December 2026", "label": "Looping Pedal EP", "type": "EP" },
-    { "month": "January 2027", "label": "REDBIRD full album", "type": "album" },
-    { "month": "February–March 2027", "label": "Post-album cycle", "type": "after" }
+    { "month": "July 2026", "label": "Private production", "type": "prep", "detail": "Revision, source cleanup, artwork direction, metadata, rollout prep" },
+    { "month": "August 2026", "label": "Soft campaign", "type": "prep", "detail": "Press-kit/listening prep, teaser assets, scheduling, close-circle preview" },
+    { "month": "September 2026", "label": "Self Love / Clark Gable", "type": "single", "detail": "Lead single anchored to Louisville Pride / workshop anniversary narrative" },
+    { "month": "October 2026", "label": "Taylor Swift mashup set", "type": "bridge", "detail": "Fan-facing social bridge" },
+    { "month": "November 2026", "label": "Missa Brevis", "type": "EP", "detail": "Liturgical vocal architecture" },
+    { "month": "December 2026", "label": "Looping Pedal EP", "type": "EP", "detail": "Looping pedal / live-process material" },
+    { "month": "January 2027", "label": "REDBIRD full album", "type": "album", "detail": "Full album, sequencing, final rollout" },
+    { "month": "February–March 2027", "label": "Post-album cycle", "type": "after", "detail": "Videos, zine/flipbook artifact, remixes, live set, grant follow-through" }
   ],
   "decisions": [
     {
       "status": "locked",
       "title": "Notion remains canonical",
       "detail": "The Netlify book displays summaries and snapshots; it does not replace Notion as the operating system."
+    },
+    {
+      "status": "active",
+      "title": "Vertical book format",
+      "detail": "Mobile browsing is the priority; desktop should expand modestly but preserve the book-object feeling."
     },
     {
       "status": "active",
@@ -62,8 +95,8 @@
     },
     {
       "status": "open",
-      "title": "Dashboard depth",
-      "detail": "Decide how many charts/tables belong in the public portal versus the private Notion dashboard."
+      "title": "Dashboard beauty vs function",
+      "detail": "Keep expanding functionality while restoring the visual quality of the original book mockup."
     }
   ],
   "filesAssets": [
@@ -97,5 +130,26 @@
       "status": "pending link policy",
       "detail": "Long-term file host and source-file archive."
     }
+  ],
+  "openQuestions": [
+    {
+      "title": "How public should the portal be?",
+      "detail": "Choose public, private, or split public/private builds before exposing real Notion links."
+    },
+    {
+      "title": "How much dashboard depth belongs here?",
+      "detail": "The portal should be useful, but still feel like a book/artifact instead of a generic admin dashboard."
+    },
+    {
+      "title": "What should the next live data source be?",
+      "detail": "Best candidates: Tracks, Release Calendar, Decision Log, or Files / Assets."
+    }
+  ],
+  "nextActions": [
+    "Keep vertical mobile-first layout as default.",
+    "Render Tracks from JSON snapshot.",
+    "Render Release Calendar from JSON snapshot.",
+    "Add compact open-questions drawer.",
+    "Restore more atmosphere while preserving function."
   ]
 }
