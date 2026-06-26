@@ -152,12 +152,13 @@ function addTocItem(screen, icon, title, subtitle) {
 function createPortalScreens() {
   ensureStylesheet('v011-modules.css');
   ensureStylesheet('v012-mobile-book-polish.css');
+  ensureStylesheet('v011-dashboard-cleanup.css');
 
   const status = document.querySelector('.status-pill');
-  if (status) status.textContent = 'v0.11 · language scrub';
+  if (status) status.textContent = 'v0.11 · dashboard cleanup';
 
   const title = document.querySelector('title');
-  if (title) title.textContent = 'The Book of REDBIRD — v0.11 User-Facing Cleanup';
+  if (title) title.textContent = 'The Book of REDBIRD — v0.11 Dashboard Cleanup';
 
   addNavButton('decisions', '✦', 'Decisions');
   addNavButton('files', '▤', 'Files');
