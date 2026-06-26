@@ -94,6 +94,16 @@ function handleActivation(element) {
     return;
   }
 
+  if (action === 'toggle-drawer') {
+    toggleDrawer();
+    return;
+  }
+
+  if (action === 'close-drawer') {
+    closeDrawer();
+    return;
+  }
+
   if (action === 'toast') {
     showToast(element.dataset.message || 'This action is queued for a future Notion/GitHub data hook.');
   }
@@ -141,12 +151,13 @@ function addTocItem(screen, icon, title, subtitle) {
 
 function createPortalScreens() {
   ensureStylesheet('v011-modules.css');
+  ensureStylesheet('v012-mobile-book-polish.css');
 
   const status = document.querySelector('.status-pill');
-  if (status) status.textContent = 'v0.11 · portal modules';
+  if (status) status.textContent = 'v0.12 · mobile book polish';
 
   const title = document.querySelector('title');
-  if (title) title.textContent = 'The Book of REDBIRD — v0.11 Portal Modules';
+  if (title) title.textContent = 'The Book of REDBIRD — v0.12 Mobile Book Portal';
 
   addNavButton('decisions', '✦', 'Decisions');
   addNavButton('files', '▤', 'Files');
@@ -176,6 +187,40 @@ function createPortalScreens() {
   `);
 }
 
+function createOpenQuestionsDrawer() {
+  if (document.getElementById('open-questions-drawer')) return;
+  const app = document.querySelector('.redbird-app');
+  const frame = document.querySelector('.book-frame');
+  if (!app || !frame) return;
+
+  const toggle = document.createElement('div');
+  toggle.className = 'open-questions-toggle';
+  toggle.innerHTML = '<button class="pixel-button" data-action="toggle-drawer">OPEN QUESTIONS</button>';
+  frame.appendChild(toggle);
+
+  const drawer = document.createElement('aside');
+  drawer.className = 'drawer-panel';
+  drawer.id = 'open-questions-drawer';
+  drawer.innerHTML = `
+    <button class="pixel-button drawer-close" data-action="close-drawer">CLOSE</button>
+    <h3>Open Questions</h3>
+    <div class="drawer-list" id="drawer-list">
+      <div class="drawer-item"><strong>Public/private boundary</strong><span>Decide what belongs in the live portal versus private Notion.</span></div>
+    </div>
+  `;
+  app.appendChild(drawer);
+}
+
+function toggleDrawer() {
+  const drawer = document.getElementById('open-questions-drawer');
+  if (drawer) drawer.classList.toggle('open');
+}
+
+function closeDrawer() {
+  const drawer = document.getElementById('open-questions-drawer');
+  if (drawer) drawer.classList.remove('open');
+}
+
 function renderDecisionLog(data) {
   const grid = document.getElementById('decision-grid');
   if (!grid || !Array.isArray(data.decisions)) return;
@@ -199,6 +244,52 @@ function renderAssets(data) {
       <strong class="asset-title">${escapeHTML(item.name)}</strong>
       <div class="asset-detail">${escapeHTML(item.detail)}</div>
     </article>
+  `).join('');
+}
+
+function renderTracks(data) {
+  const grid = document.querySelector('#screen-tracks .tracks-grid');
+  if (!grid || !Array.isArray(data.tracks)) return;
+
+  grid.innerHTML = data.tracks.map((track) => `
+    <article class="track-card ${track.primary ? 'primary' : ''} clickable-card" tabindex="0" data-screen="calendar">
+      <div class="track-kicker">${track.primary ? '<span class="status-dot"></span>' : ''}${escapeHTML(track.kicker)}</div>
+      <strong class="track-title">${escapeHTML(track.title)}</strong>
+      <div class="track-meta">${escapeHTML(track.detail)}</div>
+      <div class="action-row">
+        <button class="action-chip" data-screen="today">Today</button>
+        <button class="action-chip" data-screen="calendar">Timeline</button>
+        <button class="action-chip" data-screen="decisions">Decisions</button>
+      </div>
+    </article>
+  `).join('');
+}
+
+function renderReleaseCalendar(data) {
+  const list = document.querySelector('#screen-calendar .release-list');
+  if (!list || !Array.isArray(data.releaseArc)) return;
+
+  list.innerHTML = data.releaseArc.map((item) => `
+    <article class="release-row ${escapeHTML(item.type).toLowerCase()} clickable-card" tabindex="0" data-screen="tracks">
+      <div class="month">${escapeHTML(item.month.replace(' 2026', '').replace(' 2027', ''))}</div>
+      <div><div class="release-name">${escapeHTML(item.label)}</div><div class="release-sub">${escapeHTML(item.detail || item.type)}</div></div>
+      <div class="release-type">${escapeHTML(item.type)}</div>
+    </article>
+  `).join('');
+}
+
+function renderDrawer(data) {
+  const list = document.getElementById('drawer-list');
+  if (!list) return;
+
+  const questions = Array.isArray(data.openQuestions) ? data.openQuestions : [];
+  const actions = Array.isArray(data.nextActions) ? data.nextActions.map((action) => ({ title: 'Next action', detail: action })) : [];
+  const items = [...questions, ...actions];
+
+  if (!items.length) return;
+
+  list.innerHTML = items.map((item) => `
+    <div class="drawer-item"><strong>${escapeHTML(item.title)}</strong><span>${escapeHTML(item.detail)}</span></div>
   `).join('');
 }
 
@@ -263,12 +354,16 @@ async function hydrateDashboard() {
 
     renderDecisionLog(data);
     renderAssets(data);
+    renderTracks(data);
+    renderReleaseCalendar(data);
+    renderDrawer(data);
   } catch (error) {
     console.info('Dashboard data snapshot unavailable; using static fallback.', error);
   }
 }
 
 createPortalScreens();
+createOpenQuestionsDrawer();
 enhanceExistingRoutes();
 
 const initialHash = window.location.hash.replace('#', '');
