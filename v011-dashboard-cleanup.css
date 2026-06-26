@@ -1,0 +1,134 @@
+/* REDBIRD Interactive Book v0.11 — checkpoint 2 dashboard cleanup */
+
+.dashboard-focus {
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:14px;
+}
+
+.focus-card,
+.attention-card,
+.recent-card,
+.project-area-card {
+  background:var(--checker-dither),linear-gradient(180deg,rgba(249,242,221,.88),rgba(235,223,196,.94));
+  background-size:4px 4px,auto;
+  border:1px solid rgba(139,90,43,.42);
+  border-radius:7px;
+  padding:14px;
+  box-shadow:0 3px 0 var(--ega-shadow),inset 1px 1px 0 rgba(255,255,255,.22),inset -1px -1px 0 rgba(90,74,56,.12);
+}
+
+.focus-card.primary {
+  border-color:rgba(162,23,21,.58);
+  background:var(--checker-dither),linear-gradient(180deg,rgba(252,237,212,.94),rgba(236,220,194,.98));
+}
+
+.focus-label,
+.attention-label,
+.recent-label,
+.area-label {
+  font-family:'Press Start 2P',monospace;
+  font-size:7px;
+  line-height:1.8;
+  text-transform:uppercase;
+  color:var(--brown);
+}
+
+.focus-title,
+.attention-title,
+.recent-title {
+  display:block;
+  margin:6px 0 4px;
+  font-size:22px;
+  color:var(--redbird);
+  line-height:1;
+}
+
+.focus-meta,
+.attention-meta,
+.recent-meta {
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.25;
+}
+
+.dashboard-kpis.compact {
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+
+.dashboard-kpis.compact .kpi-card {
+  padding:12px;
+}
+
+.dashboard-kpis.compact .kpi-value {
+  font-size:24px;
+  margin:6px 0 3px;
+}
+
+.project-area-grid {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+}
+
+.project-area-card strong {
+  display:block;
+  font-size:18px;
+  color:var(--ink);
+  margin:4px 0 2px;
+}
+
+.project-area-card span {
+  display:block;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.22;
+}
+
+.attention-list {
+  display:grid;
+  gap:8px;
+  margin-top:10px;
+}
+
+.attention-item {
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  color:var(--ink);
+  font-size:15px;
+  line-height:1.22;
+}
+
+.attention-item::before {
+  content:'';
+  flex:0 0 auto;
+  width:8px;
+  height:8px;
+  margin-top:6px;
+  background:var(--redbird-bright);
+  box-shadow:1px 1px 0 rgba(0,0,0,.25);
+}
+
+.dashboard-two-column.dashboard-clean {
+  grid-template-columns:1fr .78fr;
+}
+
+.dashboard-clean .chart-card {
+  min-height:auto;
+}
+
+.dashboard-clean .recent-card {
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+@media (max-width:860px){
+  .dashboard-focus,
+  .dashboard-kpis.compact,
+  .project-area-grid,
+  .dashboard-two-column.dashboard-clean {
+    grid-template-columns:1fr;
+  }
+}
