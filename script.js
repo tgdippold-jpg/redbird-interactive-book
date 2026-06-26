@@ -52,7 +52,7 @@ function animatePageTurn() {
 function showScreen(screenName, options = {}) {
   const target = document.getElementById(`screen-${screenName}`);
   if (!target) {
-    showToast(`Screen queued for future build: ${screenName}`);
+    showToast(`This page is queued for a future build: ${screenName}`);
     return;
   }
 
@@ -105,7 +105,7 @@ function handleActivation(element) {
   }
 
   if (action === 'toast') {
-    showToast(element.dataset.message || 'This action is queued for a future Notion/GitHub data hook.');
+    showToast(element.dataset.message || 'This action is queued for a future project page.');
   }
 }
 
@@ -154,35 +154,35 @@ function createPortalScreens() {
   ensureStylesheet('v012-mobile-book-polish.css');
 
   const status = document.querySelector('.status-pill');
-  if (status) status.textContent = 'v0.12 · mobile book polish';
+  if (status) status.textContent = 'v0.11 · language scrub';
 
   const title = document.querySelector('title');
-  if (title) title.textContent = 'The Book of REDBIRD — v0.12 Mobile Book Portal';
+  if (title) title.textContent = 'The Book of REDBIRD — v0.11 User-Facing Cleanup';
 
   addNavButton('decisions', '✦', 'Decisions');
   addNavButton('files', '▤', 'Files');
   addTocItem('decisions', '✦', 'Decision Log', 'Locked choices and open questions');
-  addTocItem('files', '▤', 'Files / Assets', 'Sources, hosts, exports, and links');
+  addTocItem('files', '▤', 'Files / Assets', 'Sources, exports, and project links');
 
   createScreen('decisions', `
-    <div class="page-heading"><div><h2>Decision Log</h2><p>Durable choices, open questions, and next operational decisions.</p></div><div class="pixel-label">source-of-truth queue</div></div>
+    <div class="page-heading"><div><h2>Decision Log</h2><p>Locked choices, open questions, and what still needs a call.</p></div><div class="pixel-label">choices + questions</div></div>
     <div class="portal-grid" id="decision-grid">
-      <article class="decision-card locked"><div class="decision-status">Locked</div><strong class="decision-title">Notion remains canonical</strong><div class="decision-detail">The Netlify book displays summaries and snapshots; it does not replace Notion.</div></article>
-      <article class="decision-card active"><div class="decision-status">Active</div><strong class="decision-title">Self Love / Clark Gable leads rollout</strong><div class="decision-detail">Lead release stays focused on September 2026 with July/August prep.</div></article>
-      <article class="decision-card open"><div class="decision-status">Open</div><strong class="decision-title">Public/private boundary</strong><div class="decision-detail">Decide which Notion-derived data can appear in the deployed interface.</div></article>
+      <article class="decision-card locked"><div class="decision-status">Locked</div><strong class="decision-title">September begins the public rollout</strong><div class="decision-detail">Self Love / Clark Gable remains the lead release focus.</div></article>
+      <article class="decision-card active"><div class="decision-status">Active</div><strong class="decision-title">Lead release package</strong><div class="decision-detail">Mix, artwork, copy, metadata, and files need continued review.</div></article>
+      <article class="decision-card open"><div class="decision-status">Open</div><strong class="decision-title">What belongs in the book?</strong><div class="decision-detail">Decide which project details should be visible in this interactive archive.</div></article>
     </div>
     <div class="portal-command-row"><button class="pixel-button" data-screen="dashboard">DASHBOARD</button><button class="pixel-button" data-screen="files">FILES</button><button class="pixel-button" data-screen="today">TODAY</button></div>
   `);
 
   createScreen('files', `
-    <div class="page-heading"><div><h2>Files / Assets</h2><p>Project hosts, source files, exports, and future link policy.</p></div><div class="pixel-label">asset map</div></div>
+    <div class="page-heading"><div><h2>Files / Assets</h2><p>Masters, exports, artwork, references, and project links.</p></div><div class="pixel-label">asset map</div></div>
     <div class="portal-grid" id="asset-grid">
-      <article class="asset-card active"><div class="asset-type">Repo</div><strong class="asset-title">GitHub source repo</strong><div class="asset-detail">Versioned code, docs, CSS, script, and JSON snapshots.</div></article>
-      <article class="asset-card active"><div class="asset-type">Site</div><strong class="asset-title">Netlify live site</strong><div class="asset-detail">Hosted interactive book and review layer.</div></article>
-      <article class="asset-card source"><div class="asset-type">Notion</div><strong class="asset-title">Visual + Zine Assets</strong><div class="asset-detail">Book, zine, moodboard, typography, and artifact direction.</div></article>
-      <article class="asset-card pending"><div class="asset-type">Archive</div><strong class="asset-title">Dropbox / source files</strong><div class="asset-detail">Long-term file host and source-file archive.</div></article>
+      <article class="asset-card active"><div class="asset-type">Book</div><strong class="asset-title">Interactive book</strong><div class="asset-detail">The live project archive and review surface.</div></article>
+      <article class="asset-card active"><div class="asset-type">Audio</div><strong class="asset-title">Audio + Listening</strong><div class="asset-detail">Mix notes, listening passes, and playback observations.</div></article>
+      <article class="asset-card source"><div class="asset-type">Visual</div><strong class="asset-title">Visual + Zine Assets</strong><div class="asset-detail">Artwork, typography, book, zine, and style direction.</div></article>
+      <article class="asset-card pending"><div class="asset-type">Archive</div><strong class="asset-title">Source files</strong><div class="asset-detail">Masters, exports, stems, source links, and long-term project memory.</div></article>
     </div>
-    <article class="portal-card full-width"><div class="portal-kicker">Link policy</div><strong class="portal-title">Do not expose private source links by default.</strong><div class="portal-meta">Use this screen to separate public links, private production links, and internal-only Notion references.</div></article>
+    <article class="portal-card full-width"><div class="portal-kicker">Working rule</div><strong class="portal-title">Keep public-facing pages clean.</strong><div class="portal-meta">Detailed source links can stay tucked behind clear project sections instead of crowding the book experience.</div></article>
     <div class="portal-command-row"><button class="pixel-button" data-screen="dashboard">DASHBOARD</button><button class="pixel-button" data-screen="decisions">DECISIONS</button><button class="pixel-button" data-screen="backmatter">BACK MATTER</button></div>
   `);
 }
@@ -205,7 +205,7 @@ function createOpenQuestionsDrawer() {
     <button class="pixel-button drawer-close" data-action="close-drawer">CLOSE</button>
     <h3>Open Questions</h3>
     <div class="drawer-list" id="drawer-list">
-      <div class="drawer-item"><strong>Public/private boundary</strong><span>Decide what belongs in the live portal versus private Notion.</span></div>
+      <div class="drawer-item"><strong>What belongs in the book?</strong><span>Decide which project details should be visible in the interactive archive.</span></div>
     </div>
   `;
   app.appendChild(drawer);
@@ -358,7 +358,7 @@ async function hydrateDashboard() {
     renderReleaseCalendar(data);
     renderDrawer(data);
   } catch (error) {
-    console.info('Dashboard data snapshot unavailable; using static fallback.', error);
+    console.info('Project data unavailable; using static fallback.', error);
   }
 }
 
