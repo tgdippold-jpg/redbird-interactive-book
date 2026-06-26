@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Book of REDBIRD — v0.11 Dashboard Cleanup</title>
+  <title>The Book of REDBIRD — v0.11 TOC Expansion</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="v08-adventure-style.css" />
   <link rel="stylesheet" href="v09-dashboard.css" />
   <link rel="stylesheet" href="v010-interactions.css" />
   <link rel="stylesheet" href="v011-dashboard-cleanup.css" />
+  <link rel="stylesheet" href="v011-toc-expansion.css" />
 </head>
 <body>
   <main class="redbird-app" aria-label="The Book of REDBIRD interactive archive">
     <header class="app-topbar">
       <div class="kicker">REDBIRD // interactive album archive</div>
-      <div class="status-pill">v0.11 · dashboard cleanup</div>
+      <div class="status-pill">v0.11 · contents expansion</div>
     </header>
 
     <section class="book-stage">
@@ -94,14 +95,25 @@
           </section>
 
           <section class="screen" id="screen-toc">
-            <div class="page-heading"><div><h2>Table of Contents</h2><p>Choose where to enter the project.</p></div><div class="pixel-label">project map</div></div>
-            <div class="toc-grid">
+            <div class="page-heading"><div><h2>Table of Contents</h2><p>The full map of the REDBIRD project book.</p></div><div class="pixel-label">expanded project map</div></div>
+            <div class="toc-grid expanded">
+              <div class="toc-section-label">Start here</div>
               <div class="toc-item" tabindex="0" data-screen="dashboard"><span>▣</span><div><div class="toc-title">Project Dashboard</div><div class="toc-sub">Current REDBIRD overview</div></div><span class="chev">›</span></div>
               <div class="toc-item" tabindex="0" data-screen="today"><span>🕯️</span><div><div class="toc-title">REDBIRD Today</div><div class="toc-sub">What matters next</div></div><span class="chev">›</span></div>
-              <div class="toc-item" tabindex="0" data-screen="tracks"><span>🎼</span><div><div class="toc-title">Songs / Tracks</div><div class="toc-sub">Release sequence and track status</div></div><span class="chev">›</span></div>
+              <div class="toc-section-label">Release work</div>
+              <div class="toc-item" tabindex="0" data-screen="today"><span>♥</span><div><div class="toc-title">Current Release Package</div><div class="toc-sub">Self Love / Clark Gable hub</div></div><span class="chev">›</span></div>
+              <div class="toc-item" tabindex="0" data-screen="tracks"><span>🎼</span><div><div class="toc-title">Songs / Releases</div><div class="toc-sub">Track sequence and release status</div></div><span class="chev">›</span></div>
               <div class="toc-item" tabindex="0" data-screen="calendar"><span>📅</span><div><div class="toc-title">Release Calendar</div><div class="toc-sub">The path from prep to album</div></div><span class="chev">›</span></div>
-              <div class="toc-item" tabindex="0" data-screen="backmatter"><span>🗃️</span><div><div class="toc-title">Archive</div><div class="toc-sub">Files, links, masters, references</div></div><span class="chev">›</span></div>
-              <div class="toc-item" tabindex="0" data-screen="backmatter"><span>📚</span><div><div class="toc-title">References</div><div class="toc-sub">Project bible, tuning, source library</div></div><span class="chev">›</span></div>
+              <div class="toc-item" tabindex="0" data-screen="decisions"><span>✦</span><div><div class="toc-title">Decisions</div><div class="toc-sub">Locked choices and open questions</div></div><span class="chev">›</span></div>
+              <div class="toc-section-label">Creative buildout</div>
+              <div class="toc-item" tabindex="0" data-screen="tracks"><span>🎧</span><div><div class="toc-title">Audio + Listening</div><div class="toc-sub">Mix notes and playback passes</div></div><span class="chev">›</span></div>
+              <div class="toc-item" tabindex="0" data-screen="backmatter"><span>🎨</span><div><div class="toc-title">Visual + Zine Assets</div><div class="toc-sub">Artwork, zine, book, and typography</div></div><span class="chev">›</span></div>
+              <div class="toc-item" tabindex="0" data-screen="backmatter"><span>🕹️</span><div><div class="toc-title">Style References</div><div class="toc-sub">Pixel games, fonts, sprites, and sound cues</div></div><span class="chev">›</span></div>
+              <div class="toc-section-label">Archive + operations</div>
+              <div class="toc-item" tabindex="0" data-screen="files"><span>▤</span><div><div class="toc-title">Files / Assets</div><div class="toc-sub">Masters, exports, links, and sources</div></div><span class="chev">›</span></div>
+              <div class="toc-item" tabindex="0" data-screen="dashboard"><span>☑</span><div><div class="toc-title">Roadmap + Tasks</div><div class="toc-sub">Open work and next steps</div></div><span class="chev">›</span></div>
+              <div class="toc-item" tabindex="0" data-screen="backmatter"><span>🗃️</span><div><div class="toc-title">Back Matter / Archive</div><div class="toc-sub">References, tuning, old dashboards</div></div><span class="chev">›</span></div>
+              <div class="toc-item" tabindex="0" data-screen="calendar"><span>🏛️</span><div><div class="toc-title">Grant / Salt Lick Materials</div><div class="toc-sub">Application, budget, and framing</div></div><span class="chev">›</span></div>
             </div>
           </section>
 
