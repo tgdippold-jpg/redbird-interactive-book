@@ -4,7 +4,7 @@ This repository contains a static version of the REDBIRD interactive prototype b
 
 ## Current version
 
-**v0.11 checkpoint 3** expands the Table of Contents so the book reads more like a full project map instead of a small demo menu.
+**v0.11 checkpoint 4** cleans up navigation logic so expanded project areas route to more meaningful destinations.
 
 ## Completed checkpoints
 
@@ -34,6 +34,13 @@ This repository contains a static version of the REDBIRD interactive prototype b
 - Added entries for Current Release Package, Songs / Releases, Audio + Listening, Visual + Zine Assets, Style References, Files / Assets, Roadmap + Tasks, Decisions, Back Matter / Archive, and Grant / Salt Lick Materials.
 - Added `v011-toc-expansion.css` for a denser but organized contents layout.
 
+### Checkpoint 4 — navigation logic cleanup
+
+- Added meaningful landing screens for Current Release Package, Audio + Listening, Visual + Zine Assets, Roadmap + Tasks, Style References, and Grant / Salt Lick Materials.
+- Updated the page order so the corner page-turn control moves through the new project areas.
+- Added route cleanup logic so expanded TOC items and key buttons land on better destinations.
+- Reduced circular navigation by separating Current Release, Audio, Visual, Roadmap, Files, Decisions, Style References, Grant, Calendar, and Back Matter.
+
 ## Contents
 
 - `index.html` - Main interface shell. Includes the core screens and user-facing copy.
@@ -45,7 +52,7 @@ This repository contains a static version of the REDBIRD interactive prototype b
 - `v011-toc-expansion.css` - Checkpoint 3 expanded Table of Contents styling.
 - `v011-modules.css` - Styling for Decision Log and Files / Assets module cards.
 - `v012-mobile-book-polish.css` - Mobile-first vertical book polish and Open Questions drawer styling.
-- `script.js` - Navigation, page-turn behavior, hash routing, toast messages, project data hydration, dynamic portal modules, and drawer behavior.
+- `script.js` - Navigation, page-turn behavior, hash routing, toast messages, project data hydration, dynamic portal modules, route cleanup, and drawer behavior.
 - `data/redbird-dashboard.sample.json` - Sample structured project data for dashboard, readiness, tracks, calendar, decisions, assets, and open questions.
 - `docs/v0.9-dashboard-architecture.md` - Development architecture notes.
 
@@ -55,13 +62,12 @@ No build step is required.
 
 1. Download or clone this repository.
 2. Open `index.html` in your browser.
-3. Navigate between **Cover**, **Dashboard**, **Contents**, **REDBIRD Today**, **Tracks**, **Release Calendar**, **Decision Log**, **Files / Assets**, and **Back Matter**.
+3. Navigate between **Cover**, **Dashboard**, **Contents**, **REDBIRD Today**, **Current Release Package**, **Tracks**, **Audio + Listening**, **Visual + Zine Assets**, **Release Calendar**, **Roadmap + Tasks**, **Decision Log**, **Files / Assets**, **Style References**, **Grant / Salt Lick Materials**, and **Back Matter**.
 
 ## Next build direction
 
 Next useful work:
 
-1. Clean up navigation logic so expanded TOC items route to more meaningful destinations.
-2. Add placeholder detail pages for major releases and project areas.
-3. Refine spacing and page-turn behavior after the dashboard and TOC are reviewed live.
-4. Decide what should remain visible in the interactive book versus tucked away in project notes.
+1. Add more detailed release-specific placeholder pages for Self Love / Clark Gable, Taylor Mashup Set, Missa Brevis, Looping Pedal EP, and REDBIRD Album.
+2. Refine spacing and page-turn behavior after the dashboard and TOC are reviewed live.
+3. Decide what should remain visible in the interactive book versus tucked away in project notes.
