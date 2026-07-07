@@ -1,10 +1,10 @@
-# Redbird Interactive Book v0.11
+# Redbird Interactive Book v0.12
 
 This repository contains a static version of the REDBIRD interactive prototype based on the original CodePen project. It is intended as a working prototype for the **REDBIRD Album Workspace** and uses HTML, CSS, JavaScript, and structured project data.
 
 ## Current version
 
-**v0.11 all checkpoints complete** finishes the original cleanup sprint, including the previously skipped release-specific placeholder pages.
+**v0.12 live review / stabilization** builds on the completed v0.11 checkpoint sprint and focuses on reviewing the live Netlify prototype before adding more feature categories.
 
 ## Completed checkpoints
 
@@ -87,6 +87,12 @@ This repository contains a static version of the REDBIRD interactive prototype b
 - Captured Loom / King's Quest, Castlevania, Game Boy/pixel type, map logic, and UI cue direction.
 - Added optional non-autoplay sound cue prototypes for page turn, item found, archive key, and unavailable/error states.
 
+## v0.12 live review
+
+- Added `docs/live-review-v0.12.md` as the working review checklist for the live Netlify prototype.
+- Review focus: desktop, phone, TOC links, release pages, REDBIRD Today, visual tone, and embed testing.
+- Build rule: do not add new feature categories until the live review is complete.
+
 ## Contents
 
 - `index.html` - Main interface shell. Includes the core screens and user-facing copy.
@@ -106,6 +112,7 @@ This repository contains a static version of the REDBIRD interactive prototype b
 - `v011-checkpoints-9-11.js` - Checkpoints 9–11 behavior: stabilization screen, Today rebuild, aesthetic/sound lab, and optional sound cue prototypes.
 - `data/redbird-dashboard.sample.json` - Sample structured project data for dashboard, readiness, tracks, calendar, decisions, assets, and open questions.
 - `docs/v0.9-dashboard-architecture.md` - Development architecture notes.
+- `docs/live-review-v0.12.md` - Live review checklist for the v0.12 stabilization pass.
 
 ## Running locally
 
@@ -119,6 +126,7 @@ No build step is required.
 
 Next useful work:
 
-1. Review the live page on mobile and note spacing, sound-cue, and route issues.
-2. Replace placeholder release content with final release copy as each package matures.
-3. Decide what should remain visible in the interactive book versus tucked away in project notes.
+1. Review the live page on desktop and mobile and note spacing, sound-cue, route, and readability issues.
+2. Test the Netlify URL as an embed or linked artifact from Notion.
+3. Replace placeholder release content with final release copy as each package matures.
+4. Decide what should remain visible in the interactive book versus tucked away in project notes.
