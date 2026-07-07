@@ -1,0 +1,8 @@
+Manual deploy trigger for Netlify after v0.11 all-checkpoints-complete pass.
+
+Reason: force the GitHub-connected Netlify project to notice the latest checkpoint updates.
+
+Status:
+- Checkpoints 1-11 complete
+- Checkpoint 5 completed after being skipped
+- README updated to v0.11 all checkpoints complete
