@@ -1,10 +1,18 @@
-# Redbird Interactive Book v0.12
+# Redbird Interactive Book v0.13
 
 This repository contains a static version of the REDBIRD interactive prototype based on the original CodePen project. It is intended as a working prototype for the **REDBIRD Album Workspace** and uses HTML, CSS, JavaScript, and structured project data.
 
 ## Current version
 
-**v0.12 live review / stabilization** builds on the completed v0.11 checkpoint sprint and focuses on reviewing the live Netlify prototype before adding more feature categories.
+**v0.13 release stories** builds on the v0.12 stabilization pass by replacing the release placeholders with more complete, artifact-like chapter pages.
+
+## v0.13 release stories
+
+- Reframed every release page as a chapter in the Book of REDBIRD.
+- Expanded **Self Love / Clark Gable** with a public story frame, listening notes, release-package markers, and an artifact list while preserving it as one song.
+- Expanded the **Taylor Swift Mashup Set** as a fan-facing single + B-side companion with a clear two-part package.
+- Removed placeholder and internal terminology from the visible release pages.
+- Added compact release-package and artifact treatments that collapse cleanly on mobile.
 
 ## Completed checkpoints
 
