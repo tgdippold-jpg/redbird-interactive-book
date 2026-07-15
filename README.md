@@ -23,6 +23,13 @@ This repository contains a static version of the REDBIRD interactive prototype b
 - Built an EPK foundation from confirmed project facts, with clear space reserved for approved biography, credits, photography, contact details, and downloadable media.
 - Added responsive and keyboard-accessible treatments for the new listener journey.
 
+## v0.13 visual archive + social preview
+
+- Added a dedicated Visual Archive for approved key art, release artwork, press photography, video/performance links, and the future zine/flipbook.
+- Added the first Book of REDBIRD key-art card and made it available as a press/social download within the review edition.
+- Added Open Graph and X metadata so shared production links can use the REDBIRD artwork after approval and merge.
+- Kept unconfirmed artwork, photographs, and media links in clearly reserved folios rather than inventing assets.
+
 ## Completed checkpoints
 
 ### Checkpoint 1 — user-facing language scrub
