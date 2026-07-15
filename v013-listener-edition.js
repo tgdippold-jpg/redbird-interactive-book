@@ -150,8 +150,8 @@
       <div class="page-heading listener-heading"><div><h2>Visual Archive</h2><p>The book, zine, image, and moving-picture world surrounding REDBIRD.</p></div><div class="pixel-label">KEY ART · ZINE · MEDIA</div></div>
       <div class="media-archive">
         <figure class="media-hero">
-          <img src="og.png" alt="The Book of REDBIRD key art: an oxblood and gold interactive album archive presented as an illuminated adventure-game book." />
-          <figcaption><div><span>FOLIO 01 · INTERACTIVE ARCHIVE KEY ART</span><strong>The book is the first visual artifact.</strong></div><a href="og.png" target="_blank" rel="noopener">VIEW FULL SIZE ↗</a></figcaption>
+          <img src="og.jpg" alt="The Book of REDBIRD key art: an oxblood and gold interactive album archive presented as an illuminated adventure-game book." />
+          <figcaption><div><span>FOLIO 01 · INTERACTIVE ARCHIVE KEY ART</span><strong>The book is the first visual artifact.</strong></div><a href="og.jpg" target="_blank" rel="noopener">VIEW FULL SIZE ↗</a></figcaption>
         </figure>
 
         <section class="listener-section media-folios">
@@ -162,7 +162,7 @@
             <article class="media-folio"><span>RESERVED FOLIO</span><strong>Press photography</strong><p>Portraits and project photographs prepared for editorial and press use.</p><small>Awaiting approved photographs</small></article>
             <article class="media-folio"><span>RESERVED FOLIO</span><strong>Video + performance</strong><p>Music video, live-process, and performance links as they are cleared for public viewing.</p><small>Awaiting confirmed links</small></article>
             <article class="media-folio"><span>IN DEVELOPMENT</span><strong>Zine + flipbook</strong><p>The printable and screen-based companion artifact extending the Book of REDBIRD beyond the browser.</p><small>Part of the post-album cycle</small></article>
-            <article class="media-folio"><span>PRESS MATERIAL</span><strong>Social preview card</strong><p>A shareable image for links to the interactive archive.</p><a class="paper-link" href="og.png" download="book-of-redbird-social-card.png">DOWNLOAD CARD</a></article>
+            <article class="media-folio"><span>PRESS MATERIAL</span><strong>Social preview card</strong><p>A shareable image for links to the interactive archive.</p><a class="paper-link" href="og.jpg" download="book-of-redbird-social-card.jpg">DOWNLOAD CARD</a></article>
           </div>
         </section>
       </div>
