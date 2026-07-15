@@ -139,11 +139,33 @@
         <article class="archive-index-card primary" tabindex="0" data-screen="album"><span>01 · ENTER</span><h3>The Album</h3><p>The central story and the path from first release to full record.</p><b>OPEN CHAPTER ↗</b></article>
         <article class="archive-index-card" tabindex="0" data-screen="listen"><span>02 · HEAR</span><h3>Listening Room</h3><p>Release audio and listening links as each chapter becomes public.</p><b>OPEN ROOM ↗</b></article>
         <article class="archive-index-card" tabindex="0" data-screen="releases"><span>03 · FOLLOW</span><h3>Release Stories</h3><p>Five arrivals across the REDBIRD release sequence.</p><b>OPEN STORIES ↗</b></article>
-        <article class="archive-index-card" tabindex="0" data-screen="visual"><span>04 · SEE</span><h3>Visual + Zine World</h3><p>The book, typography, imagery, and artifact direction surrounding the album.</p><b>OPEN ARCHIVE ↗</b></article>
+        <article class="archive-index-card" tabindex="0" data-screen="media"><span>04 · SEE</span><h3>Visual + Zine World</h3><p>The book, typography, imagery, and artifact direction surrounding the album.</p><b>OPEN ARCHIVE ↗</b></article>
         <article class="archive-index-card" tabindex="0" data-screen="epk"><span>05 · READ</span><h3>Press Kit</h3><p>Confirmed project facts, album framing, and approved materials.</p><b>OPEN EPK ↗</b></article>
         <article class="archive-index-card quiet" tabindex="0" data-screen="backmatter"><span>06 · DEEPER</span><h3>Back Matter</h3><p>Composition notes, references, project memory, and the deeper working archive.</p><b>TURN TO BACK MATTER ↗</b></article>
       </div>
       <article class="archive-rule"><div class="listener-eyebrow">ARCHIVE PRINCIPLE</div><p>Confirmed listener-facing material belongs in the front rooms. Working notes and unfinished source material remain available in the Studio and Back Matter.</p></article>
+    `);
+
+    createScreen('media', `
+      <div class="page-heading listener-heading"><div><h2>Visual Archive</h2><p>The book, zine, image, and moving-picture world surrounding REDBIRD.</p></div><div class="pixel-label">KEY ART · ZINE · MEDIA</div></div>
+      <div class="media-archive">
+        <figure class="media-hero">
+          <img src="og.png" alt="The Book of REDBIRD key art: an oxblood and gold interactive album archive presented as an illuminated adventure-game book." />
+          <figcaption><div><span>FOLIO 01 · INTERACTIVE ARCHIVE KEY ART</span><strong>The book is the first visual artifact.</strong></div><a href="og.png" target="_blank" rel="noopener">VIEW FULL SIZE ↗</a></figcaption>
+        </figure>
+
+        <section class="listener-section media-folios">
+          <div class="section-heading-row"><div><div class="listener-eyebrow">ARCHIVE FOLIOS</div><h3>A home for every approved artifact</h3></div></div>
+          <div class="media-folio-grid">
+            <article class="media-folio active"><span>ACTIVE FOLIO</span><strong>Interactive book</strong><p>Key art, page design, typography, interface details, and the public archive itself.</p><button class="paper-link" data-screen="album">ENTER THE BOOK</button></article>
+            <article class="media-folio"><span>RESERVED FOLIO</span><strong>Release artwork</strong><p>Approved single, companion, EP, and album artwork will collect here without replacing the book’s identity.</p><small>Awaiting approved masters</small></article>
+            <article class="media-folio"><span>RESERVED FOLIO</span><strong>Press photography</strong><p>Portraits and project photographs prepared for editorial and press use.</p><small>Awaiting approved photographs</small></article>
+            <article class="media-folio"><span>RESERVED FOLIO</span><strong>Video + performance</strong><p>Music video, live-process, and performance links as they are cleared for public viewing.</p><small>Awaiting confirmed links</small></article>
+            <article class="media-folio"><span>IN DEVELOPMENT</span><strong>Zine + flipbook</strong><p>The printable and screen-based companion artifact extending the Book of REDBIRD beyond the browser.</p><small>Part of the post-album cycle</small></article>
+            <article class="media-folio"><span>PRESS MATERIAL</span><strong>Social preview card</strong><p>A shareable image for links to the interactive archive.</p><a class="paper-link" href="og.png" download="book-of-redbird-social-card.png">DOWNLOAD CARD</a></article>
+          </div>
+        </section>
+      </div>
     `);
 
     createScreen('epk', `
@@ -170,7 +192,7 @@
           <div class="epk-material-list">
             <button data-screen="album"><strong>Album overview</strong><span>Project statement and release path</span><b>OPEN</b></button>
             <button data-screen="releases"><strong>Release stories</strong><span>Five chapters from lead single to album</span><b>OPEN</b></button>
-            <button data-screen="visual"><strong>Visual world</strong><span>Book, zine, typography, and artifact direction</span><b>OPEN</b></button>
+            <button data-screen="media"><strong>Visual world</strong><span>Book, zine, typography, and artifact direction</span><b>OPEN</b></button>
             <button data-screen="listen"><strong>Listening room</strong><span>Release audio as links are confirmed</span><b>OPEN</b></button>
           </div>
         </article>
@@ -183,7 +205,7 @@
   }
 
   function setListenerPageOrder() {
-    const preferred = ['cover', 'album', 'listen', 'releases', 'release-slcg', 'release-taylor', 'release-missa', 'release-looping', 'release-album', 'archive', 'epk', 'dashboard', 'toc', 'today', 'current-release', 'tracks', 'audio', 'visual', 'calendar', 'roadmap', 'decisions', 'files', 'style', 'grant', 'backmatter'];
+    const preferred = ['cover', 'album', 'listen', 'releases', 'release-slcg', 'release-taylor', 'release-missa', 'release-looping', 'release-album', 'archive', 'media', 'epk', 'dashboard', 'toc', 'today', 'current-release', 'tracks', 'audio', 'visual', 'calendar', 'roadmap', 'decisions', 'files', 'style', 'grant', 'backmatter'];
     screenOrder.splice(0, screenOrder.length, ...preferred.filter((id) => document.getElementById(`screen-${id}`)));
   }
 
