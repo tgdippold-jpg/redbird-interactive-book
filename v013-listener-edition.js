@@ -187,6 +187,20 @@
             <div><dt>Album arrival</dt><dd>January 2027</dd></div>
           </dl>
         </article>
+        <figure class="epk-key-art">
+          <img src="og.jpg" alt="The Book of REDBIRD interactive album archive key art." />
+          <figcaption><div><div class="listener-eyebrow">CURRENT KEY ART</div><strong>The Book of REDBIRD</strong><span>Interactive archive artwork for site and press-link review.</span></div><a class="paper-link light" href="og.jpg" download="book-of-redbird-social-card.jpg">DOWNLOAD KEY ART</a></figcaption>
+        </figure>
+        <article class="epk-timeline">
+          <div class="listener-eyebrow">RELEASE SEQUENCE</div>
+          <ol>
+            <li><span>SEP 2026</span><strong>Self Love / Clark Gable</strong><small>Lead single</small></li>
+            <li><span>OCT 2026</span><strong>Taylor Swift Mashup Set</strong><small>Single + B-side companion</small></li>
+            <li><span>NOV 2026</span><strong>Missa Brevis</strong><small>EP</small></li>
+            <li><span>DEC 2026</span><strong>Looping Pedal EP</strong><small>EP</small></li>
+            <li><span>JAN 2027</span><strong>REDBIRD</strong><small>Full album</small></li>
+          </ol>
+        </article>
         <article class="epk-materials">
           <div class="listener-eyebrow">MATERIALS</div>
           <div class="epk-material-list">
@@ -196,9 +210,17 @@
             <button data-screen="listen"><strong>Listening room</strong><span>Release audio as links are confirmed</span><b>OPEN</b></button>
           </div>
         </article>
+        <article class="epk-language">
+          <div class="listener-eyebrow">PROJECT LANGUAGE</div>
+          <div class="epk-language-list"><span>Interactive album archive</span><span>Playable project archive</span><span>Interactive zine</span><span>Late-80s adventure-game book</span></div>
+        </article>
         <article class="epk-note">
           <div class="listener-eyebrow">PRESS ASSETS IN PROGRESS</div>
           <p>Confirmed biography, credits, photography, contact details, and downloadable media will be added here as those materials are approved.</p>
+        </article>
+        <article class="epk-actions" data-no-print>
+          <div><div class="listener-eyebrow">PRESS HANDOFF</div><p>Print this confirmed-facts edition or save it as a PDF. Unconfirmed personal and release information is intentionally omitted.</p></div>
+          <button class="pixel-button" data-action="print-epk">PRINT / SAVE EPK</button>
         </article>
       </div>
     `);
@@ -227,8 +249,18 @@
     });
   }
 
+  function addListenerActions() {
+    document.addEventListener('click', (event) => {
+      const trigger = event.target.closest('[data-action="print-epk"]');
+      if (!trigger) return;
+      showScreen('epk', { skipAnimation: true });
+      window.setTimeout(() => window.print(), 80);
+    });
+  }
+
   shapeFrontDoor();
   createListenerScreens();
   setListenerPageOrder();
   watchDynamicReleaseLists();
+  addListenerActions();
 })();
