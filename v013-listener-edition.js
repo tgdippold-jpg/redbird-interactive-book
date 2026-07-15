@@ -9,6 +9,20 @@
     ['REDBIRD Album', 'release-album']
   ];
 
+  const shareableRoutes = [
+    ['album', 'Album'],
+    ['listen', 'Listening Room'],
+    ['releases', 'Release Chapters'],
+    ['release-slcg', 'Self Love / Clark Gable'],
+    ['release-taylor', 'Taylor Swift Mashup Set'],
+    ['release-missa', 'Missa Brevis'],
+    ['release-looping', 'Looping Pedal EP'],
+    ['release-album', 'REDBIRD Album'],
+    ['archive', 'Archive Index'],
+    ['media', 'Visual Archive'],
+    ['epk', 'Press Kit']
+  ];
+
   function makeNavButton(screen, icon, label) {
     const button = document.createElement('button');
     button.className = 'nav-btn';
@@ -24,7 +38,7 @@
     const nav = document.querySelector('.nav-list');
 
     document.title = 'The Book of REDBIRD — Interactive Album Archive';
-    if (status) status.textContent = 'listener edition · first chapter';
+    if (status) status.textContent = 'listener edition · shareable chapters';
     if (sidebarSubtitle) sidebarSubtitle.textContent = 'Interactive Album Archive';
 
     if (cover) {
@@ -231,6 +245,25 @@
     screenOrder.splice(0, screenOrder.length, ...preferred.filter((id) => document.getElementById(`screen-${id}`)));
   }
 
+  function addShareableChapterTools() {
+    shareableRoutes.forEach(([route, label]) => {
+      const screen = document.getElementById(`screen-${route}`);
+      if (!screen || screen.querySelector('.chapter-tools')) return;
+
+      const tools = document.createElement('div');
+      tools.className = 'chapter-tools';
+      tools.dataset.noPrint = '';
+      tools.innerHTML = `<span>SHAREABLE CHAPTER · ${label}</span><button class="paper-link" data-action="copy-link">COPY CHAPTER LINK</button>`;
+      screen.prepend(tools);
+    });
+  }
+
+  function applyRequestedRoute() {
+    const requested = window.location.hash.replace('#', '') || 'cover';
+    const route = document.getElementById(`screen-${requested}`) ? requested : 'cover';
+    showScreen(route, { skipAnimation: true, skipHistory: true, skipFocus: true });
+  }
+
   function routeExistingReleaseCards(root = document) {
     root.querySelectorAll('.track-card, .release-row').forEach((card) => {
       const match = releaseRoutes.find(([title]) => (card.textContent || '').includes(title));
@@ -261,6 +294,9 @@
   shapeFrontDoor();
   createListenerScreens();
   setListenerPageOrder();
+  addShareableChapterTools();
+  enhanceInteractiveSemantics(document);
+  applyRequestedRoute();
   watchDynamicReleaseLists();
   addListenerActions();
 })();
