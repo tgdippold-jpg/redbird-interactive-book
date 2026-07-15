@@ -1,5 +1,56 @@
 /* REDBIRD Interactive Book v0.13 — listener edition and EPK */
 
+.skip-link {
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:100;
+  transform:translateY(-160%);
+  appearance:none;
+  padding:10px 12px;
+  border:2px solid var(--gold);
+  background:var(--charcoal);
+  color:var(--parchment-light);
+  font-family:'Press Start 2P',monospace;
+  font-size:7px;
+  line-height:1.6;
+  cursor:pointer;
+}
+
+.skip-link:focus { transform:translateY(0); outline:3px solid var(--parchment-light); outline-offset:2px; }
+
+.chapter-tools {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin:0 0 14px;
+  padding:8px 11px;
+  border:1px dashed rgba(139,90,43,.46);
+  background:rgba(251,242,220,.48);
+}
+
+.chapter-tools > span {
+  color:var(--brown);
+  font-family:'Press Start 2P',monospace;
+  font-size:6px;
+  line-height:1.65;
+}
+
+.chapter-tools .paper-link { flex:0 0 auto; }
+
+.screen h2[tabindex="-1"]:focus,
+.cover-book h2[tabindex="-1"]:focus {
+  outline:2px dotted currentColor;
+  outline-offset:6px;
+}
+
+[role="link"]:focus-visible,
+[role="button"]:focus-visible {
+  outline:2px dotted var(--redbird);
+  outline-offset:3px;
+}
+
 .listener-page,
 .listening-stage,
 .epk-grid { width:100%; }
@@ -250,6 +301,7 @@
 .media-folio small { color:var(--brown); font-style:italic; font-size:14px; }
 
 @media (max-width:760px) {
+  .chapter-tools { align-items:flex-start; flex-direction:column; }
   .album-hero { grid-template-columns:1fr; min-height:auto; margin:-4px -4px 14px; padding:34px 24px; }
   .album-sigil { width:min(230px,72vw); justify-self:center; }
   .current-chapter { grid-template-columns:1fr auto; }
@@ -277,6 +329,11 @@
 
 @media (prefers-reduced-motion:reduce) {
   .album-sigil i { display:none; }
+  .book-frame.turning,
+  .screen { animation:none!important; }
+  .clickable-card,
+  .nav-btn,
+  .toast { transition:none!important; }
 }
 
 @media print {
