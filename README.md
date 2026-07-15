@@ -30,6 +30,12 @@ This repository contains a static version of the REDBIRD interactive prototype b
 - Added Open Graph and X metadata so shared production links can use the REDBIRD artwork after approval and merge.
 - Kept unconfirmed artwork, photographs, and media links in clearly reserved folios rather than inventing assets.
 
+## v0.13 print-ready EPK
+
+- Expanded the Press Kit with current key art, the confirmed release sequence, and approved project-language descriptors.
+- Added a Print / Save EPK action and a dedicated print layout that removes application navigation and Studio controls.
+- Added `docs/epk-content-intake.md` so biography, credits, rights, contact details, photography, audio, video, and press downloads can be supplied without guesswork.
+
 ## Completed checkpoints
 
 ### Checkpoint 1 — user-facing language scrub
