@@ -14,6 +14,15 @@ This repository contains a static version of the REDBIRD interactive prototype b
 - Removed placeholder and internal terminology from the visible release pages.
 - Added compact release-package and artifact treatments that collapse cleanly on mobile.
 
+## v0.13 listener edition + EPK
+
+- Added a listener-facing album entrance while preserving the private planning tools behind a Studio doorway.
+- Added dedicated Album, Listening Room, Release Chapters, Archive Index, and Press Kit pages.
+- Reworked the cover and primary navigation around music discovery rather than project administration.
+- Added honest listening-link states that do not invent or expose unconfirmed audio.
+- Built an EPK foundation from confirmed project facts, with clear space reserved for approved biography, credits, photography, contact details, and downloadable media.
+- Added responsive and keyboard-accessible treatments for the new listener journey.
+
 ## Completed checkpoints
 
 ### Checkpoint 1 — user-facing language scrub
