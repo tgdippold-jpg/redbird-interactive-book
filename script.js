@@ -2,6 +2,7 @@ const screenOrder = ['cover', 'dashboard', 'toc', 'today', 'current-release', 't
 let currentScreen = 'cover';
 let toastTimer;
 let dashboardSnapshot = null;
+let drawerReturnFocus = null;
 
 function escapeHTML(value) {
   return String(value ?? '')
@@ -49,6 +50,54 @@ function animatePageTurn() {
   });
 }
 
+function getScreenFocusTarget(screen) {
+  return screen.querySelector('.page-heading h2, .album-hero h2, .cover-book h2, h2, h3') || screen;
+}
+
+function focusCurrentScreen(options = {}) {
+  const screen = document.getElementById(`screen-${currentScreen}`);
+  if (!screen) return;
+
+  const focusTarget = getScreenFocusTarget(screen);
+  if (!focusTarget.hasAttribute('tabindex')) focusTarget.tabIndex = -1;
+  focusTarget.focus({ preventScroll: Boolean(options.preventScroll) });
+}
+
+function enhanceInteractiveSemantics(root = document) {
+  root.querySelectorAll('[data-screen], [data-action]').forEach((element) => {
+    if (element.matches('button, a, input, select, textarea')) return;
+    if (element.querySelector('button, a, input, select, textarea')) return;
+
+    if (!element.hasAttribute('tabindex')) element.tabIndex = 0;
+    if (!element.hasAttribute('role')) element.setAttribute('role', element.dataset.screen ? 'link' : 'button');
+  });
+}
+
+async function copyCurrentChapterLink() {
+  const url = new URL(window.location.href);
+  url.hash = currentScreen;
+
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(url.href);
+    } else {
+      const field = document.createElement('textarea');
+      field.value = url.href;
+      field.setAttribute('readonly', '');
+      field.style.position = 'fixed';
+      field.style.opacity = '0';
+      document.body.appendChild(field);
+      field.select();
+      const copied = document.execCommand('copy');
+      field.remove();
+      if (!copied) throw new Error('Copy command unavailable');
+    }
+    showToast('Chapter link copied.');
+  } catch (error) {
+    showToast(`Chapter address: #${currentScreen}`);
+  }
+}
+
 function showScreen(screenName, options = {}) {
   const target = document.getElementById(`screen-${screenName}`);
   if (!target) {
@@ -57,19 +106,29 @@ function showScreen(screenName, options = {}) {
   }
 
   getScreens().forEach((screen) => {
-    screen.classList.toggle('active', screen.id === `screen-${screenName}`);
+    const isActive = screen.id === `screen-${screenName}`;
+    screen.classList.toggle('active', isActive);
+    screen.setAttribute('aria-hidden', String(!isActive));
   });
 
   getSidebarButtons().forEach((button) => {
-    button.classList.toggle('active', button.dataset.screen === screenName);
+    const isActive = button.dataset.screen === screenName;
+    button.classList.toggle('active', isActive);
+    if (isActive) button.setAttribute('aria-current', 'page');
+    else button.removeAttribute('aria-current');
   });
 
   currentScreen = screenName;
 
   if (!options.skipAnimation) animatePageTurn();
 
-  if (window.location.hash !== `#${screenName}`) {
-    history.replaceState(null, '', `#${screenName}`);
+  if (!options.skipHistory && window.location.hash !== `#${screenName}`) {
+    const method = options.replaceHistory ? 'replaceState' : 'pushState';
+    history[method](null, '', `#${screenName}`);
+  }
+
+  if (!options.skipFocus) {
+    window.requestAnimationFrame(() => focusCurrentScreen());
   }
 }
 
@@ -101,6 +160,16 @@ function handleActivation(element) {
 
   if (action === 'close-drawer') {
     closeDrawer();
+    return;
+  }
+
+  if (action === 'copy-link') {
+    copyCurrentChapterLink();
+    return;
+  }
+
+  if (action === 'skip-content') {
+    focusCurrentScreen();
     return;
   }
 
@@ -259,12 +328,14 @@ function createOpenQuestionsDrawer() {
 
   const toggle = document.createElement('div');
   toggle.className = 'open-questions-toggle';
-  toggle.innerHTML = '<button class="pixel-button" data-action="toggle-drawer">OPEN QUESTIONS</button>';
+  toggle.innerHTML = '<button class="pixel-button" data-action="toggle-drawer" aria-controls="open-questions-drawer" aria-expanded="false">OPEN QUESTIONS</button>';
   frame.appendChild(toggle);
 
   const drawer = document.createElement('aside');
   drawer.className = 'drawer-panel';
   drawer.id = 'open-questions-drawer';
+  drawer.setAttribute('aria-label', 'Open questions');
+  drawer.setAttribute('aria-hidden', 'true');
   drawer.innerHTML = `
     <button class="pixel-button drawer-close" data-action="close-drawer">CLOSE</button>
     <h3>Open Questions</h3>
@@ -277,12 +348,30 @@ function createOpenQuestionsDrawer() {
 
 function toggleDrawer() {
   const drawer = document.getElementById('open-questions-drawer');
-  if (drawer) drawer.classList.toggle('open');
+  if (!drawer) return;
+
+  const shouldOpen = !drawer.classList.contains('open');
+  const toggle = document.querySelector('[data-action="toggle-drawer"]');
+  drawer.classList.toggle('open', shouldOpen);
+  drawer.setAttribute('aria-hidden', String(!shouldOpen));
+  if (toggle) toggle.setAttribute('aria-expanded', String(shouldOpen));
+
+  if (shouldOpen) {
+    drawerReturnFocus = document.activeElement;
+    drawer.querySelector('[data-action="close-drawer"]')?.focus();
+  }
 }
 
 function closeDrawer() {
   const drawer = document.getElementById('open-questions-drawer');
-  if (drawer) drawer.classList.remove('open');
+  const toggle = document.querySelector('[data-action="toggle-drawer"]');
+  if (!drawer) return;
+
+  drawer.classList.remove('open');
+  drawer.setAttribute('aria-hidden', 'true');
+  if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  if (drawerReturnFocus instanceof HTMLElement) drawerReturnFocus.focus();
+  drawerReturnFocus = null;
 }
 
 function renderDecisionLog(data) {
@@ -382,10 +471,16 @@ function enhanceExistingRoutes() {
 document.addEventListener('click', (event) => {
   const target = event.target.closest('[data-screen], [data-action]');
   if (!target) return;
+  if (target.matches('a')) event.preventDefault();
   handleActivation(target);
 });
 
 document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeDrawer();
+    return;
+  }
+
   if (event.key !== 'Enter' && event.key !== ' ') return;
 
   const target = event.target.closest('[data-screen], [data-action]');
@@ -428,6 +523,7 @@ async function hydrateDashboard() {
     renderReleaseCalendar(data);
     renderDrawer(data);
     enhanceExistingRoutes();
+    enhanceInteractiveSemantics(document);
   } catch (error) {
     console.info('Project data unavailable; using static fallback.', error);
   }
@@ -436,10 +532,18 @@ async function hydrateDashboard() {
 createPortalScreens();
 createOpenQuestionsDrawer();
 enhanceExistingRoutes();
+enhanceInteractiveSemantics(document);
 
 const initialHash = window.location.hash.replace('#', '');
 if (initialHash && document.getElementById(`screen-${initialHash}`)) {
-  showScreen(initialHash, { skipAnimation: true });
+  showScreen(initialHash, { skipAnimation: true, skipHistory: true, skipFocus: true });
 }
+
+window.addEventListener('hashchange', () => {
+  const requestedScreen = window.location.hash.replace('#', '') || 'cover';
+  if (document.getElementById(`screen-${requestedScreen}`)) {
+    showScreen(requestedScreen, { skipAnimation: true, skipHistory: true });
+  }
+});
 
 hydrateDashboard();
