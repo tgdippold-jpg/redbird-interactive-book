@@ -1,10 +1,19 @@
-# Redbird Interactive Book v0.13
+# Redbird Interactive Book v0.14
 
 This repository contains a static version of the REDBIRD interactive prototype based on the original CodePen project. It is intended as a working prototype for the **REDBIRD Album Workspace** and uses HTML, CSS, JavaScript, and structured project data.
 
 ## Current version
 
-**v0.13 release stories** builds on the v0.12 stabilization pass by replacing the release placeholders with more complete, artifact-like chapter pages.
+**v0.14 shareable chapters** turns the listener edition into a linkable, keyboard-aware archive while preserving the v0.13 release stories, visual archive, and EPK.
+
+## v0.14 shareable chapters + accessibility
+
+- Fixed direct chapter URLs so links such as `#album`, `#releases`, and `#epk` open the requested page after the listener screens are created.
+- Added browser back/forward support without reloading the book.
+- Added a visible Copy Chapter Link control across the public album, release, archive, visual, and press-kit pages.
+- Added current-page state for navigation, focus movement to each newly opened chapter, a skip-to-chapter control, and semantic roles for non-button cards.
+- Improved the Open Questions drawer with expanded/hidden state, Escape-to-close behavior, and focus return.
+- Expanded reduced-motion behavior so the book can turn pages without transition or animation effects.
 
 ## v0.13 release stories
 
@@ -138,11 +147,14 @@ This repository contains a static version of the REDBIRD interactive prototype b
 - `v011-checkpoints-9-11.css` - Styling for stabilization, Today cockpit, and aesthetic/sound lab screens.
 - `v011-modules.css` - Styling for Decision Log and Files / Assets module cards.
 - `v012-mobile-book-polish.css` - Mobile-first vertical book polish and Open Questions drawer styling.
+- `v013-listener-edition.css` - Listener, archive, Press Kit, chapter-sharing, accessibility, responsive, and print styling.
+- `v013-listener-edition.js` - Listener-facing pages, archive/EPK content, shareable chapter controls, and late-created route initialization.
 - `script.js` - Navigation, page-turn behavior, hash routing, toast messages, project data hydration, dynamic portal modules, route cleanup, and drawer behavior.
 - `v011-checkpoints-9-11.js` - Checkpoints 9–11 behavior: stabilization screen, Today rebuild, aesthetic/sound lab, and optional sound cue prototypes.
 - `data/redbird-dashboard.sample.json` - Sample structured project data for dashboard, readiness, tracks, calendar, decisions, assets, and open questions.
 - `docs/v0.9-dashboard-architecture.md` - Development architecture notes.
 - `docs/live-review-v0.12.md` - Live review checklist for the v0.12 stabilization pass.
+- `docs/listener-review-v0.14.md` - Shareable-chapter, keyboard, responsive, reduced-motion, and Press Kit review checklist.
 
 ## Running locally
 
@@ -156,7 +168,7 @@ No build step is required.
 
 Next useful work:
 
-1. Review the live page on desktop and mobile and note spacing, sound-cue, route, and readability issues.
-2. Test the Netlify URL as an embed or linked artifact from Notion.
-3. Replace placeholder release content with final release copy as each package matures.
-4. Decide what should remain visible in the interactive book versus tucked away in project notes.
+1. Complete the unlocked-computer checks in `docs/listener-review-v0.14.md`.
+2. Supply approved biography, credits, rights, contact, artwork, photography, listening, video, and press materials.
+3. Test the review URL as an embed or linked artifact from Notion.
+4. Approve the draft listener edition before any production merge.
