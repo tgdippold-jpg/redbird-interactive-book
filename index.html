@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="v013-listener-edition.css" />
 </head>
 <body>
+  <button class="skip-link" type="button" data-action="skip-content">Skip to current chapter</button>
   <main class="redbird-app" aria-label="The Book of REDBIRD interactive archive">
     <header class="app-topbar">
       <div class="kicker">REDBIRD // interactive album archive</div>
@@ -50,7 +51,7 @@
         </nav>
       </aside>
 
-      <section class="main-book">
+      <section class="main-book" id="book-content" tabindex="-1">
         <div class="book-frame">
           <button class="page-corner-flip" type="button" data-action="next-page" aria-label="Turn page"><span>↷</span></button>
 
