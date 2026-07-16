@@ -3,15 +3,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Book of REDBIRD — v0.11 Release Pages Complete</title>
+  <meta name="description" content="Enter the Book of REDBIRD: music, release stories, visual artifacts, and an unfolding interactive album archive." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="The Book of REDBIRD" />
+  <meta property="og:title" content="The Book of REDBIRD — Interactive Album Archive" />
+  <meta property="og:description" content="Music, release stories, visual artifacts, and the unfolding REDBIRD album." />
+  <meta property="og:image" content="https://redbird-interactive-book.netlify.app/og.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1536" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:image:alt" content="The Book of REDBIRD interactive album archive, presented as a dark oxblood and gold adventure-game book artifact." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Book of REDBIRD — Interactive Album Archive" />
+  <meta name="twitter:description" content="Music, release stories, visual artifacts, and the unfolding REDBIRD album." />
+  <meta name="twitter:image" content="https://redbird-interactive-book.netlify.app/og.jpg" />
+  <title>The Book of REDBIRD — Interactive Album Archive</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="v08-adventure-style.css" />
   <link rel="stylesheet" href="v09-dashboard.css" />
   <link rel="stylesheet" href="v010-interactions.css" />
   <link rel="stylesheet" href="v011-dashboard-cleanup.css" />
   <link rel="stylesheet" href="v011-toc-expansion.css" />
+  <link rel="stylesheet" href="v013-listener-edition.css" />
 </head>
 <body>
+  <button class="skip-link" type="button" data-action="skip-content">Skip to current chapter</button>
   <main class="redbird-app" aria-label="The Book of REDBIRD interactive archive">
     <header class="app-topbar">
       <div class="kicker">REDBIRD // interactive album archive</div>
@@ -35,7 +51,7 @@
         </nav>
       </aside>
 
-      <section class="main-book">
+      <section class="main-book" id="book-content" tabindex="-1">
         <div class="book-frame">
           <button class="page-corner-flip" type="button" data-action="next-page" aria-label="Turn page"><span>↷</span></button>
 
@@ -102,5 +118,6 @@
   <script src="script.js"></script>
   <script src="v011-checkpoints-9-11.js"></script>
   <script src="v011-checkpoint-5.js"></script>
+  <script src="v013-listener-edition.js"></script>
 </body>
 </html>
